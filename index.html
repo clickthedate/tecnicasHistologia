@@ -127,6 +127,25 @@
   .call p:last-child{margin-bottom:0}
   .call.key p, .call.tip p{color:#3a3348}
 
+
+  /* ---------- EXPLICACIÓN EN PALABRAS NORMALES ---------- */
+  .explain-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0 24px}
+  .explain{border-radius:16px;padding:18px 20px;border:1px solid var(--line);
+    box-shadow:var(--shadow);background:var(--card);position:relative;overflow:hidden}
+  .explain::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px}
+  .explain.normal::before{background:var(--eosin)}
+  .explain.imagine::before{background:var(--teal)}
+  .explain .ex-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;font-weight:700;margin-bottom:8px}
+  .explain.normal .ex-label{color:var(--eosin)}
+  .explain.imagine .ex-label{color:var(--teal)}
+  .explain h4{margin:0 0 7px;font-size:17px;color:var(--hema-deep)}
+  .explain p{margin:0;font-size:14.5px;line-height:1.55;color:#3a3348}
+  .explain .memory{margin-top:10px;padding:9px 11px;border-radius:9px;
+    background:var(--paper-2);font-size:12.5px;color:var(--ink-soft)}
+  .section-explain{margin-top:18px}
+  @media (max-width:680px){.explain-grid{grid-template-columns:1fr}}
+
   /* clinical box */
   .clinic{background:var(--amber-soft);border:1px solid #e6cf9a;border-radius:16px;
     padding:18px 20px;margin:16px 0;box-shadow:var(--shadow)}
@@ -214,7 +233,7 @@
     <p class="booknote">Guía de estudio basada en el Capítulo 1 "Técnicas" (págs. 1–27).</p>
     <div class="howto">
       <div class="dot">🔬</div>
-      <p><strong>Cómo usar esta guía:</strong> lee el resumen de cada bloque, apóyate en los diagramas para entender los procesos y, al final, repasa con las <strong>flashcards</strong> (haz clic para voltearlas). Puedes imprimirla desde tu navegador.</p>
+      <p><strong>Cómo usar esta guía:</strong> lee el contenido, detente en los bloques <strong>“Qué significa en palabras normales”</strong> y <strong>“Cómo imaginarlo”</strong> para construir una imagen mental, apóyate en los diagramas y al final repasa con las <strong>flashcards</strong>. Puedes imprimirla desde tu navegador.</p>
     </div>
   </div>
 </header>
@@ -312,6 +331,20 @@
   </figure>
 
   <h3 class="sub">Paso 1 · Fijación</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>La fijación es como 'pausar' el tejido justo después de sacarlo del cuerpo. Evita que las células sigan cambiando o se autodigieran y ayuda a conservar su forma.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagina que tomas una fotografía instantánea de una ciudad antes de que cambie. La formalina ayuda a conservar esa escena química.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Formalina = conservar la escena.</div>
+    </div>
+  </div>
+
   <p>La <term>fijación</term> conserva la estructura del tejido apenas se extrae del cuerpo. El fijador más habitual es la <strong>formalina</strong> (solución de formaldehído al 37%, "formol").</p>
   <p>La fijación sirve para:</p>
   <ul class="clean">
@@ -326,9 +359,37 @@
   </div>
 
   <h3 class="sub">Paso 2 · Deshidratación e inclusión en parafina</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>Hay que quitar el agua porque la parafina no se mezcla con ella. Después se reemplaza el medio por parafina, que al endurecerse sostiene el tejido para poder cortarlo.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Como preparar una gelatina firme alrededor de algo delicado: la parafina funciona como soporte mientras el microtomo hace rebanadas extremadamente delgadas.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Parafina = soporte para poder cortar.</div>
+    </div>
+  </div>
+
   <p>Como la parafina no se mezcla con agua, primero hay que <strong>deshidratar</strong> la muestra pasándola por alcoholes de concentración creciente hasta el 100%. Luego se <strong>aclara</strong> con un solvente (xileno o tolueno) y se infiltra con <term>parafina</term>. Al enfriarse forma un bloque duro que se corta con un <strong>microtomo</strong> en cortes finísimos (del rango de 5–15 µm). Los cortes se montan sobre un portaobjetos con un medio de montaje adhesivo.</p>
 
   <h3 class="sub">Paso 3 · Tinción (H&E)</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>La tinción aumenta el contraste para que podamos distinguir unas partes del tejido de otras. En H&E, el núcleo suele verse azul/púrpura y el citoplasma rosado.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagina una fotografía casi invisible a la que le pones dos marcadores: uno resalta especialmente los núcleos y otro muchas proteínas del citoplasma.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> H = núcleo morado/azul; E = citoplasma rosado.</div>
+    </div>
+  </div>
+
   <p>Como los cortes en parafina son <strong>incoloros</strong>, se retira la parafina (con xileno), se rehidrata el tejido y se tiñe. La tinción más común es la de <term>hematoxilina-eosina</term>:</p>
   <ul class="clean">
     <li><strong>Hematoxilina:</strong> se comporta como colorante básico y tiñe de <strong>azul/púrpura</strong> las estructuras basófilas, sobre todo el <strong>núcleo</strong> (ADN y ARN).</li>
@@ -344,6 +405,20 @@
   <p class="lead">Reacciones químicas específicas que dan información sobre la composición y la función de células y tejidos.</p>
 
   <h3 class="sub">Colorantes ácidos y básicos: la lógica de las cargas</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>Los colorantes se unen mejor a estructuras que tienen una carga opuesta. Por eso un colorante básico atrae componentes aniónicos y uno ácido atrae componentes catiónicos.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Piensa en imanes: colorante y estructura se atraen porque tienen cargas opuestas. El tejido 'elige' qué colorante retiene según sus grupos químicos.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Básico → estructuras basófilas; ácido → estructuras acidófilas.</div>
+    </div>
+  </div>
+
   <p>Casi toda la tinción se explica por <strong>atracción de cargas opuestas</strong>. Este es probablemente el concepto más importante del bloque.</p>
 
   <figure class="diagram">
@@ -385,9 +460,37 @@
   <p><strong>Influencia del pH:</strong> a pH alto (~10) los grupos aniónicos están ionizados y reaccionan bien con colorantes básicos; a pH bajo (&lt;4) solo los grupos sulfato siguen ionizados. Ajustando el pH se puede dirigir la tinción hacia grupos específicos.</p>
 
   <h4 class="subsub">Metacromasia</h4>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>Metacromasia significa que un colorante puede cambiar de color cuando se concentra sobre determinados componentes ricos en cargas. El mismo colorante se comporta distinto al unirse.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagina que el azul de toluidina entra en una zona normalmente azul, pero al acumularse sobre una región con muchas cargas esa zona hace que se vea púrpura o rojiza.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Meta = cambio de color.</div>
+    </div>
+  </div>
+
   <p>Algunos colorantes básicos <strong>cambian de color</strong> (de azul a púrpura o rojo) al reaccionar con componentes que tienen muchos <strong>polianiones</strong> (grupos sulfato/fosfato concentrados). Ocurre en el <strong>cartílago</strong>, los gránulos de <strong>heparina de los mastocitos</strong> y el RER de los plasmocitos. Ejemplo clásico: el <strong>azul de toluidina</strong> se ve púrpura-rojo.</p>
 
   <h4 class="subsub">PAS (ácido peryódico de Schiff) y reacción de Feulgen</h4>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>PAS busca sustancias ricas en carbohidratos mediante una reacción química que produce una señal coloreada. Feulgen está dirigido al ADN y permite relacionar la intensidad del color con su cantidad.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagina dos detectores: PAS busca 'azúcares' y Feulgen busca específicamente ADN. Cuando encuentran su objetivo, dejan una señal visible.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> PAS = carbohidratos; Feulgen = ADN.</div>
+    </div>
+  </div>
+
   <p>La reacción de <term>PAS</term> tiñe <strong>hidratos de carbono</strong> y moléculas ricas en ellos de color <strong>rojo-magenta/púrpura</strong>. El ácido peryódico oxida los azúcares y forma grupos <strong>aldehído</strong>, que reaccionan con el reactivo de Schiff. Se usa para mostrar <strong>glucógeno</strong>, moco, <strong>membrana basal</strong> y fibras reticulares.</p>
   <p>La <term>reacción de Feulgen</term> es una variante que tiñe el <strong>ADN</strong> (una hidrólisis débil con HCl genera los grupos aldehído). Es <strong>estequiométrica</strong>: el color es proporcional a la cantidad de ADN, por eso sirve para <strong>medirlo</strong>. Dato clave: el <strong>ARN no se tiñe</strong> con Feulgen porque carece de desoxirribosa.</p>
 
@@ -398,6 +501,20 @@
   <p>Localiza <strong>enzimas</strong> por su actividad (no la enzima en sí). Se usa un <strong>reactivo de captura</strong> (a menudo un metal pesado) que precipita el producto de la reacción justo en el sitio donde está la enzima. Ejemplos: <strong>fosfatasa ácida</strong> (marca lisosomas), fosfatasa alcalina, <strong>ATPasas</strong> (Na⁺/K⁺ = bomba de sodio), y la <strong>peroxidasa de rábano</strong> con DAB (da un producto pardo insoluble).</p>
 
   <h3 class="sub">Inmunocitoquímica</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>La inmunocitoquímica usa la capacidad de un anticuerpo para reconocer específicamente a su antígeno. Si marcas ese anticuerpo, puedes saber dónde está la molécula que buscas.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Piensa en un detective con una llave hecha para una sola cerradura. El anticuerpo busca su 'cerradura' y, al estar marcado, deja una señal donde la encontró.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Anticuerpo = detector específico.</div>
+    </div>
+  </div>
+
   <p>Se basa en la <strong>especificidad de la reacción entre un antígeno y su anticuerpo</strong>. Los anticuerpos (inmunoglobulinas) se marcan con <strong>fluorocromos</strong> (fluoresceína → emite luz verde; rodamina → rojo), con enzimas o con oro.</p>
   <div class="tablewrap">
     <table>
@@ -452,13 +569,55 @@
   </figure>
 
   <h3 class="sub">Hibridación e FISH</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>En vez de buscar una proteína con un anticuerpo, aquí buscas una secuencia de ADN o ARN usando una sonda complementaria.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagina una pieza de rompecabezas fluorescente diseñada para encajar solamente en una secuencia concreta. Si encaja, la zona brilla.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Sonda complementaria = rompecabezas para ADN/ARN.</div>
+    </div>
+  </div>
+
   <p>La <term>hibridación</term> localiza <strong>ARNm o ADN</strong> usando una <strong>sonda de nucleótidos complementaria</strong> y marcada. Cuando se hace dentro de células o tejidos se llama hibridación <em>in situ</em>.</p>
   <p>La técnica <term>FISH</term> (hibridación in situ con fluorescencia) usa sondas fluorescentes y permite ver varias a la vez. Tiene mucho uso clínico: <strong>diagnóstico prenatal</strong> (por ejemplo, detectar la trisomía 21 / síndrome de Down), cribado de cáncer, etc.</p>
 
   <h3 class="sub">Autorradiografía</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>Permite localizar dónde terminó un material radiactivo que previamente se incorporó al tejido. La radiación deja una señal que se transforma en granos de plata visibles.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Es como poner pequeñas etiquetas invisibles a ciertas moléculas y después revelar una fotografía: donde había etiqueta aparecen puntitos negros.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Granos negros = dónde quedó el material radiactivo.</div>
+    </div>
+  </div>
+
   <p>Localiza <strong>material radiactivo</strong> en el tejido. Se administran precursores radiactivos (por ejemplo <strong>³H-timidina</strong> para el ADN o <strong>³H-uridina</strong> para el ARN), se cubre el corte con una emulsión fotográfica y, donde hubo radiactividad, aparecen <strong>granos de plata negros</strong>. Sirve para estudiar la síntesis y la secreción celular.</p>
 
   <h3 class="sub">Microscopía de expansión (MEx)</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>En lugar de hacer que el microscopio vea mágicamente más pequeño, esta técnica hace que la muestra sea físicamente más grande para separar sus componentes.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagina una camiseta con letras bordadas muy juntas. Si estiras la camiseta de manera uniforme, las letras se separan y puedes distinguir detalles antes amontonados.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Expandir la muestra = separar físicamente los detalles.</div>
+    </div>
+  </div>
+
   <p>Mejora la resolución del microscopio óptico <strong>expandiendo físicamente la muestra</strong>. Se infiltra el tejido con <strong>hidrogeles expansibles</strong> (los mismos polímeros de los pañales), se anclan las moléculas, se gelifica y, al agregar agua, la muestra <strong>se expande de forma isotrópica</strong> (~4.5 veces), separando las moléculas para ver detalles antes imposibles. Aplicada a preparados patológicos de H&E se llama <strong>PatEx</strong>.</p>
 </section>
 
@@ -469,6 +628,20 @@
   <p class="lead">Un microscopio amplía la imagen y permite ver más detalle del que capta el ojo. La clave para comparar microscopios es el poder de resolución.</p>
 
   <h3 class="sub">Resolución ≠ aumento</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>Aumentar significa hacer que algo se vea más grande. Resolver significa poder distinguir dos detalles que están muy juntos. Puedes agrandar una imagen borrosa sin obtener información nueva.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Piensa en ampliar una foto del celular: si haces demasiado zoom, el píxel se hace grande pero no aparecen detalles nuevos.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Aumento = tamaño; resolución = detalle.</div>
+    </div>
+  </div>
+
   <p>El <term>poder de resolución</term> es la capacidad de una lente para mostrar como <strong>separados</strong> dos puntos que están muy cerca. Cuidado: el <strong>aumento no mejora la resolución</strong> (la lente ocular agranda la imagen pero no añade detalle). La resolución depende sobre todo de la <strong>longitud de onda</strong> de lo que ilumina la muestra: cuanto menor sea, mejor resolución.</p>
   <div class="call key">
     <div class="h">📐 La fórmula</div>
@@ -495,6 +668,20 @@
   </figure>
 
   <h3 class="sub">El microscopio óptico de campo claro</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>La luz atraviesa el preparado y las lentes organizan esa luz para formar una imagen ampliada. La muestra necesita ser fina y tener suficiente contraste.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Sigue la luz como un camino: lámpara → condensador → muestra → objetivo → ocular → tus ojos.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Luz → muestra → objetivo → ocular.</div>
+    </div>
+  </div>
+
   <p>Es el que usan la mayoría de los estudiantes. Sus partes básicas (siguiendo el recorrido de la luz):</p>
   <ul class="clean">
     <li><strong>Fuente de luz</strong> (lámpara en la base).</li>
@@ -511,6 +698,20 @@
   </div>
 
   <h3 class="sub">Otros sistemas ópticos</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>No existe un único microscopio perfecto. Cada sistema cambia cómo genera contraste o elimina información no deseada para responder una pregunta diferente.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagínalos como filtros: contraste de fase ayuda con células vivas sin teñir; fluorescencia hace brillar etiquetas; polarización revela estructuras ordenadas; confocal elimina luz fuera de foco.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> No memorices solo nombres: piensa '¿qué problema resuelve?'</div>
+    </div>
+  </div>
+
   <div class="tablewrap">
     <table>
       <thead><tr><th>Sistema</th><th>Para qué sirve / dato clave</th></tr></thead>
@@ -526,6 +727,20 @@
   </div>
 
   <h3 class="sub">Microscopía de superresolución</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>La superresolución usa estrategias especiales para obtener detalles más pequeños de lo que permite la microscopía óptica convencional.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Es como intentar distinguir dos estrellas demasiado cercanas: en vez de solo aumentar el telescopio, cambias la forma de iluminar y detectar cada punto.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Superresolución = estrategias para superar el límite óptico convencional.</div>
+    </div>
+  </div>
+
   <p>Superan el <strong>límite de difracción</strong> de la luz (mejoran la resolución al menos ×2). Tres familias de métodos:</p>
   <ul class="clean">
     <li><strong>Localización de molécula única:</strong> PALM, STORM.</li>
@@ -534,6 +749,20 @@
   </ul>
 
   <h3 class="sub">Microscopía electrónica</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>En vez de usar luz visible, utiliza electrones, cuya longitud de onda efectiva permite una resolución mucho mayor. MET y MEB responden preguntas distintas.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>MET es como atravesar una pared para conocer su interior; MEB es como recorrer una escultura y mapear su superficie.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> MET = interior; MEB = superficie.</div>
+    </div>
+  </div>
+
   <p>Usa un haz de electrones en lugar de luz. La longitud de onda es ~2000× menor, así que la resolución es muchísimo mayor.</p>
   <div class="tablewrap">
     <table>
@@ -549,6 +778,20 @@
   <p><strong>Criofractura:</strong> técnica especial para el MET. Se fractura una muestra congelada para ver el <strong>interior de las membranas</strong> (se generan la cara E y la cara P). Muy útil para estudiar la zónula ocluyente.</p>
 
   <h3 class="sub">Microscopía de fuerza atómica (MFA)</h3>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>La MFA no necesita formar una imagen con luz. Una punta extremadamente fina recorre la superficie y sus movimientos permiten reconstruir la topografía.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagínate pasar la punta de un lápiz sobre una moneda con los ojos cerrados: por cómo sube y baja puedes reconstruir los relieves.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> MFA = 'tocar' la superficie para construir un mapa.</div>
+    </div>
+  </div>
+
   <p>Es un microscopio <strong>NO óptico</strong>. Una <strong>púa finísima</strong> (casi del tamaño de un átomo), montada en un soporte voladizo flexible, recorre la superficie de la muestra "tocándola"; un láser detecta sus movimientos y construye la topografía a resolución molecular o atómica (funciona en modo de contacto o de percusión). <strong>Gran ventaja:</strong> la muestra <strong>no necesita vacío</strong>, incluso puede estar sumergida en agua → permite estudiar <strong>células vivas</strong>.</p>
 
   <h3 class="sub">Microscopía virtual</h3>
@@ -560,6 +803,20 @@
   <p class="eyebrow">Correlación clínica</p>
   <h2 class="sec">Los 4 cuadros del capítulo</h2>
   <p class="lead">Los recuadros suelen dar preguntas de examen porque conectan la técnica con la práctica médica.</p>
+  <div class="explain-grid section-explain">
+    <div class="explain normal">
+      <div class="ex-label">🧠 Qué significa en palabras normales</div>
+      <h4>En sencillo</h4>
+      <p>Los cuadros clínicos responden '¿para qué le sirve esto al médico?'. Muestran cómo una técnica de laboratorio se convierte en información diagnóstica o útil para una decisión.</p>
+    </div>
+    <div class="explain imagine">
+      <div class="ex-label">👀 Cómo imaginarlo</div>
+      <h4>Hazte esta imagen mental</h4>
+      <p>Imagina que cada técnica es una herramienta de una caja médica. La pregunta no es solo '¿cómo funciona?', sino '¿cuándo la sacaría de la caja y qué información me daría?'.</p>
+      <div class="memory"><strong>💡 Para recordar:</strong> Técnica → información → decisión clínica.</div>
+    </div>
+  </div>
+
 
   <div class="clinic">
     <span class="badge">Cuadro 1-1 · Clínica</span>
