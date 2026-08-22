@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de estudio · Cap. 1 Técnicas · Histología de Ross</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF7FC;
+    --paper-2:#F3ECF8;
+    --card:#FFFFFF;
+    --ink:#2C2338;
+    --ink-soft:#5C5470;
+    --ink-faint:#8B85A0;
+    --hema:#7A3E9D;        /* hematoxilina - púrpura */
+    --hema-deep:#4B1E73;
+    --hema-soft:#EEE3F6;
+    --eosin:#D6336C;       /* eosina - rosa/magenta */
+    --eosin-soft:#FBE0EB;
+    --teal:#0E8A82;
+    --teal-soft:#D6EEEC;
+    --amber:#B5751A;
+    --amber-soft:#FBEFD6;
+    --line:#E7DEF1;
+    --shadow:0 1px 2px rgba(75,30,115,.06), 0 8px 24px rgba(75,30,115,.07);
+    --shadow-lg:0 12px 40px rgba(75,30,115,.14);
+    --display:'Fraunces',Georgia,serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--body);line-height:1.65;font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:0 22px}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 88% 8%, rgba(214,51,108,.14), transparent 55%),
+      radial-gradient(120% 90% at 5% 95%, rgba(122,62,157,.16), transparent 50%),
+      linear-gradient(180deg,#fff, var(--paper));
+    border-bottom:1px solid var(--line);
+    padding:58px 0 40px;
+  }
+  .slidebar{
+    display:inline-flex;align-items:center;gap:0;border-radius:6px;overflow:hidden;
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    box-shadow:var(--shadow);margin-bottom:24px;
+  }
+  .slidebar span{padding:6px 12px;color:#fff}
+  .slidebar .s1{background:var(--hema)}
+  .slidebar .s2{background:var(--eosin)}
+  .slidebar .s3{background:var(--teal)}
+  h1.title{
+    font-family:var(--display);font-weight:600;letter-spacing:-.02em;
+    font-size:clamp(38px,7vw,66px);line-height:1.02;margin:0 0 6px;
+    color:var(--hema-deep);
+  }
+  h1.title em{font-style:italic;color:var(--eosin)}
+  .subtitle{font-size:clamp(17px,2.4vw,21px);color:var(--ink-soft);max-width:640px;margin:12px 0 0}
+  .booknote{margin-top:8px;font-size:14px;color:var(--ink-faint)}
+  .howto{
+    margin-top:30px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 20px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start;max-width:640px;
+  }
+  .howto .dot{flex:none;width:34px;height:34px;border-radius:9px;background:var(--hema-soft);
+    display:grid;place-items:center;font-size:18px}
+  .howto p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+  .howto strong{color:var(--ink)}
+
+  /* ---------- MAPA ---------- */
+  section{padding:46px 0}
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--eosin);margin:0 0 10px;display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--eosin);border-radius:2px}
+  h2.sec{font-family:var(--display);font-weight:600;font-size:clamp(26px,4vw,36px);
+    letter-spacing:-.015em;margin:0 0 6px;color:var(--hema-deep)}
+  .lead{color:var(--ink-soft);max-width:680px;margin:0 0 26px;font-size:16.5px}
+
+  .map{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  .map a{
+    text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:20px 18px;box-shadow:var(--shadow);transition:transform .18s, box-shadow .18s, border-color .18s;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .map a:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--hema)}
+  .map .num{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.1em}
+  .map h3{font-family:var(--display);font-weight:600;font-size:19px;margin:0;color:var(--hema)}
+  .map p{margin:0;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+  .map .tag{margin-top:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+    color:var(--teal);text-transform:uppercase}
+
+  /* ---------- CONTENIDO ---------- */
+  .block{scroll-margin-top:20px}
+  h3.sub{font-family:var(--display);font-weight:600;font-size:22px;color:var(--hema-deep);
+    margin:34px 0 8px;letter-spacing:-.01em}
+  h4.subsub{font-size:16px;font-weight:700;color:var(--ink);margin:22px 0 4px}
+  p{margin:0 0 14px}
+  .block p, .block li{color:#3a3348}
+  strong{color:var(--hema-deep);font-weight:600}
+  .term{color:var(--eosin);font-weight:600}
+  ul.clean{list-style:none;padding:0;margin:0 0 16px}
+  ul.clean li{position:relative;padding-left:22px;margin-bottom:8px}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:10px;width:7px;height:7px;
+    border-radius:50%;background:var(--eosin)}
+
+  .abbr{font-family:var(--mono);font-size:.86em;font-weight:600;background:var(--hema-soft);
+    color:var(--hema-deep);padding:1px 6px;border-radius:5px;letter-spacing:.02em}
+
+  /* callouts */
+  .call{border-radius:14px;padding:16px 18px;margin:18px 0;border:1px solid;font-size:14.5px}
+  .call .h{font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+  .call.key{background:var(--teal-soft);border-color:#a9dcd7}
+  .call.key .h{color:var(--teal)}
+  .call.tip{background:var(--eosin-soft);border-color:#f3bcd2}
+  .call.tip .h{color:var(--eosin)}
+  .call p:last-child{margin-bottom:0}
+  .call.key p, .call.tip p{color:#3a3348}
+
+  /* clinical box */
+  .clinic{background:var(--amber-soft);border:1px solid #e6cf9a;border-radius:16px;
+    padding:18px 20px;margin:16px 0;box-shadow:var(--shadow)}
+  .clinic .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:#fff;background:var(--amber);padding:4px 9px;border-radius:6px;display:inline-block;margin-bottom:10px}
+  .clinic h4{margin:0 0 6px;font-size:16.5px;color:#7a4e08;font-weight:700}
+  .clinic p{margin:0 0 8px;font-size:14px;color:#5a4420}
+  .clinic p:last-child{margin-bottom:0}
+
+  /* figure / SVG cards */
+  figure.diagram{margin:24px 0;background:var(--card);border:1px solid var(--line);
+    border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+  figure.diagram svg{display:block;width:100%;height:auto}
+  figcaption{font-size:13px;color:var(--ink-faint);margin-top:12px;text-align:center;font-family:var(--body)}
+
+  /* table */
+  .tablewrap{overflow-x:auto;margin:20px 0;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:520px;background:var(--card);font-size:14px}
+  thead th{background:var(--hema);color:#fff;text-align:left;padding:11px 14px;font-weight:600;
+    font-family:var(--body);letter-spacing:.01em}
+  tbody td{padding:10px 14px;border-top:1px solid var(--line);color:#3a3348;vertical-align:top}
+  tbody tr:nth-child(even){background:var(--paper-2)}
+  td .abbr{white-space:nowrap}
+
+  /* ---------- FLASHCARDS ---------- */
+  .fc-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:20px}
+  .fc-hint{font-size:13.5px;color:var(--ink-faint)}
+  .fc-btn{font-family:var(--body);font-size:13px;font-weight:600;color:var(--hema-deep);
+    background:var(--card);border:1px solid var(--line);border-radius:9px;padding:8px 14px;cursor:pointer;
+    box-shadow:var(--shadow);transition:background .15s,border-color .15s}
+  .fc-btn:hover{border-color:var(--hema);background:var(--hema-soft)}
+  .fc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .card{perspective:1200px;height:190px;cursor:pointer}
+  .card-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,.15,.2,1);
+    transform-style:preserve-3d}
+  .card.flip .card-inner{transform:rotateY(180deg)}
+  .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+    border-radius:16px;padding:18px 18px;display:flex;flex-direction:column;
+    box-shadow:var(--shadow);border:1px solid var(--line)}
+  .face .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+  .front{background:var(--card)}
+  .front .lab{color:var(--eosin)}
+  .front .q{font-family:var(--display);font-weight:600;font-size:17px;color:var(--hema-deep);line-height:1.25}
+  .front .flipnote{margin-top:auto;font-size:11.5px;color:var(--ink-faint);display:flex;align-items:center;gap:6px}
+  .back{background:linear-gradient(160deg,var(--hema),var(--hema-deep));color:#fff;transform:rotateY(180deg)}
+  .back .lab{color:rgba(255,255,255,.7)}
+  .back .a{font-size:14px;line-height:1.45;color:#fff;overflow:auto}
+  .back .a strong{color:#ffd9ec}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:34px 0 60px;margin-top:20px;color:var(--ink-faint);font-size:13.5px}
+  footer .wrap{display:flex;flex-direction:column;gap:6px}
+
+  @media (max-width:680px){
+    .map{grid-template-columns:1fr}
+    .fc-grid{grid-template-columns:1fr}
+    .card{height:auto;min-height:170px}
+    section{padding:34px 0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .card-inner{transition:none}
+    .map a{transition:none}
+  }
+  @media print{
+    header.hero{padding:20px 0}
+    .howto,.fc-bar,.map .tag{display:none}
+    .card{height:auto;page-break-inside:avoid}
+    .card-inner{transform:none!important}
+    .face{position:relative;backface-visibility:visible;box-shadow:none;border:1px solid #ccc}
+    .back{transform:none;background:#f3ecf8;color:#000;margin-top:8px}
+    .back .a,.back .a strong,.back .lab{color:#000}
+    body{font-size:12px}
+    a{color:inherit;text-decoration:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="slidebar"><span class="s1">Cap. 1</span><span class="s2">Técnicas</span><span class="s3">Histología · Ross 8ª ed.</span></div>
+    <h1 class="title">Hacer visible<br>lo <em>invisible</em></h1>
+    <p class="subtitle">Todo el capítulo responde a una sola pregunta: las células son transparentes e incoloras, entonces ¿cómo hacemos para verlas y estudiarlas? Aquí están las técnicas, paso a paso y con lo esencial para el examen.</p>
+    <p class="booknote">Guía de estudio basada en el Capítulo 1 "Técnicas" (págs. 1–27).</p>
+    <div class="howto">
+      <div class="dot">🔬</div>
+      <p><strong>Cómo usar esta guía:</strong> lee el resumen de cada bloque, apóyate en los diagramas para entender los procesos y, al final, repasa con las <strong>flashcards</strong> (haz clic para voltearlas). Puedes imprimirla desde tu navegador.</p>
+    </div>
+  </div>
+</header>
+
+<!-- MAPA DEL CAPÍTULO -->
+<section class="wrap">
+  <p class="eyebrow">Mapa del capítulo</p>
+  <h2 class="sec">Tres grandes bloques</h2>
+  <p class="lead">El capítulo se ordena como si prepararas y leyeras un preparado: primero preparas el tejido, luego lo tiñes con química específica, y por último lo observas con distintos microscopios.</p>
+  <nav class="map">
+    <a href="#prep">
+      <span class="num">Bloque 01</span>
+      <h3>Preparación del tejido</h3>
+      <p>Cómo se convierte un trozo de tejido en un corte fino y coloreado que se puede mirar al microscopio.</p>
+      <span class="tag">Fijación · Corte · H&E</span>
+    </a>
+    <a href="#quimica">
+      <span class="num">Bloque 02</span>
+      <h3>Histoquímica y citoquímica</h3>
+      <p>Tinciones y reacciones químicas específicas: colorantes, PAS, inmunocitoquímica, hibridación, autorradiografía.</p>
+      <span class="tag">Colorantes · Anticuerpos · FISH</span>
+    </a>
+    <a href="#micro">
+      <span class="num">Bloque 03</span>
+      <h3>Microscopía</h3>
+      <p>Resolución, el microscopio óptico y todos sus "primos": fluorescencia, confocal, electrónico, fuerza atómica.</p>
+      <span class="tag">Resolución · MET · MEB · MFA</span>
+    </a>
+  </nav>
+</section>
+
+<!-- BLOQUE 0: FUNDAMENTOS -->
+<section class="wrap block" id="fund">
+  <p class="eyebrow">Para arrancar</p>
+  <h2 class="sec">¿Qué es la histología?</h2>
+  <p>La <term>histología</term> (del griego <em>histos</em>, tejido; <em>logia</em>, ciencia) también se llama <strong>anatomía microscópica</strong>. Es el estudio de la estructura microscópica de las células, los tejidos y los órganos, y de cómo esa estructura se relaciona con su <strong>función</strong>. No es solo describir lo que se ve: también incluye biología celular y molecular.</p>
+  <p>Hoy los estudiantes observan preparados con el <strong>microscopio óptico</strong> y, cada vez más, con <strong>microscopía virtual</strong> (preparados digitalizados que se ven en una pantalla o dispositivo móvil).</p>
+  <div class="call key">
+    <div class="h">🔑 La idea que conecta todo el capítulo</div>
+    <p>Un corte de tejido es <strong>tridimensional convertido en dos dimensiones</strong>, transparente e incoloro. Para poder verlo e interpretarlo hay que <strong>prepararlo, teñirlo y elegir el microscopio adecuado</strong>. Cada técnica del capítulo es una forma distinta de resolver ese problema.</p>
+  </div>
+</section>
+
+<!-- BLOQUE 1: PREPARACIÓN -->
+<section class="wrap block" id="prep">
+  <p class="eyebrow">Bloque 01</p>
+  <h2 class="sec">Preparación del tejido</h2>
+  <p class="lead">La muestra más frecuente es un corte fijado en formalina, incluido en parafina y teñido con hematoxilina-eosina (H&E). Se prepara en tres pasos.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Los tres pasos de la preparación del tejido">
+      <defs>
+        <marker id="arw" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#8B85A0"/>
+        </marker>
+      </defs>
+      <!-- Step 1 -->
+      <g>
+        <rect x="12" y="40" width="222" height="150" rx="16" fill="#EEE3F6" stroke="#7A3E9D" stroke-width="1.5"/>
+        <circle cx="52" cy="78" r="18" fill="#7A3E9D"/>
+        <text x="52" y="84" font-family="IBM Plex Mono, monospace" font-size="18" fill="#fff" text-anchor="middle" font-weight="600">1</text>
+        <text x="82" y="76" font-family="Fraunces, serif" font-size="19" fill="#4B1E73" font-weight="600">Fijación</text>
+        <text x="82" y="96" font-family="Inter, sans-serif" font-size="12" fill="#5C5470">Conservar la estructura</text>
+        <text x="30" y="126" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Fijador: formalina (formol)</text>
+        <text x="30" y="146" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Detiene autólisis y metabolismo</text>
+        <text x="30" y="166" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Osmio → lípidos y membranas</text>
+      </g>
+      <line x1="238" y1="115" x2="262" y2="115" stroke="#8B85A0" stroke-width="2" marker-end="url(#arw)"/>
+      <!-- Step 2 -->
+      <g>
+        <rect x="266" y="40" width="222" height="150" rx="16" fill="#FBE0EB" stroke="#D6336C" stroke-width="1.5"/>
+        <circle cx="306" cy="78" r="18" fill="#D6336C"/>
+        <text x="306" y="84" font-family="IBM Plex Mono, monospace" font-size="18" fill="#fff" text-anchor="middle" font-weight="600">2</text>
+        <text x="336" y="76" font-family="Fraunces, serif" font-size="19" fill="#4B1E73" font-weight="600">Inclusión</text>
+        <text x="336" y="96" font-family="Inter, sans-serif" font-size="12" fill="#5C5470">Endurecer y cortar</text>
+        <text x="284" y="126" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Deshidratar (alcoholes)</text>
+        <text x="284" y="146" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Incluir en parafina</text>
+        <text x="284" y="166" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Cortar (microtomo) 5–15 µm</text>
+      </g>
+      <line x1="492" y1="115" x2="516" y2="115" stroke="#8B85A0" stroke-width="2" marker-end="url(#arw)"/>
+      <!-- Step 3 -->
+      <g>
+        <rect x="520" y="40" width="228" height="150" rx="16" fill="#D6EEEC" stroke="#0E8A82" stroke-width="1.5"/>
+        <circle cx="560" cy="78" r="18" fill="#0E8A82"/>
+        <text x="560" y="84" font-family="IBM Plex Mono, monospace" font-size="18" fill="#fff" text-anchor="middle" font-weight="600">3</text>
+        <text x="590" y="76" font-family="Fraunces, serif" font-size="19" fill="#4B1E73" font-weight="600">Tinción</text>
+        <text x="590" y="96" font-family="Inter, sans-serif" font-size="12" fill="#5C5470">Dar color y contraste</text>
+        <text x="538" y="126" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Montar en portaobjetos</text>
+        <text x="538" y="146" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Rehidratar y teñir (H&amp;E)</text>
+        <text x="538" y="166" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• Cubreobjetos → observar</text>
+      </g>
+      <text x="20" y="24" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B85A0" letter-spacing="1.5">DE LA MUESTRA AL PREPARADO</text>
+    </svg>
+    <figcaption>Los tres pasos para transformar un trozo de tejido en un preparado que se puede observar.</figcaption>
+  </figure>
+
+  <h3 class="sub">Paso 1 · Fijación</h3>
+  <p>La <term>fijación</term> conserva la estructura del tejido apenas se extrae del cuerpo. El fijador más habitual es la <strong>formalina</strong> (solución de formaldehído al 37%, "formol").</p>
+  <p>La fijación sirve para:</p>
+  <ul class="clean">
+    <li>Detener el metabolismo celular.</li>
+    <li>Impedir la <strong>autólisis</strong> (autodigestión por las propias enzimas de la célula).</li>
+    <li>Destruir microorganismos patógenos (bacterias, hongos, virus).</li>
+    <li>Endurecer el tejido mediante enlaces cruzados entre proteínas.</li>
+  </ul>
+  <div class="call tip">
+    <div class="h">⚠️ Ojo con este detalle (cae en examen)</div>
+    <p>La formalina conserva bien las proteínas, pero <strong>no reacciona con los lípidos</strong>: es un mal fijador de las membranas celulares. Para conservar membranas y lípidos se usa <strong>tetróxido de osmio</strong> (un metal pesado). Por eso las micrografías electrónicas muestran las membranas tan bien conservadas.</p>
+  </div>
+
+  <h3 class="sub">Paso 2 · Deshidratación e inclusión en parafina</h3>
+  <p>Como la parafina no se mezcla con agua, primero hay que <strong>deshidratar</strong> la muestra pasándola por alcoholes de concentración creciente hasta el 100%. Luego se <strong>aclara</strong> con un solvente (xileno o tolueno) y se infiltra con <term>parafina</term>. Al enfriarse forma un bloque duro que se corta con un <strong>microtomo</strong> en cortes finísimos (del rango de 5–15 µm). Los cortes se montan sobre un portaobjetos con un medio de montaje adhesivo.</p>
+
+  <h3 class="sub">Paso 3 · Tinción (H&E)</h3>
+  <p>Como los cortes en parafina son <strong>incoloros</strong>, se retira la parafina (con xileno), se rehidrata el tejido y se tiñe. La tinción más común es la de <term>hematoxilina-eosina</term>:</p>
+  <ul class="clean">
+    <li><strong>Hematoxilina:</strong> se comporta como colorante básico y tiñe de <strong>azul/púrpura</strong> las estructuras basófilas, sobre todo el <strong>núcleo</strong> (ADN y ARN).</li>
+    <li><strong>Eosina:</strong> colorante ácido, tiñe de <strong>rosa/rojo</strong> las estructuras acidófilas, sobre todo el <strong>citoplasma</strong>.</li>
+  </ul>
+  <p>La hematoxilina y la eosina muestran las características <strong>estructurales</strong>, pero no permiten ver bien componentes como la elastina, las fibras reticulares, las membranas basales o los lípidos: para eso existen otras tinciones más selectivas.</p>
+</section>
+
+<!-- BLOQUE 2: QUÍMICA -->
+<section class="wrap block" id="quimica">
+  <p class="eyebrow">Bloque 02</p>
+  <h2 class="sec">Histoquímica y citoquímica</h2>
+  <p class="lead">Reacciones químicas específicas que dan información sobre la composición y la función de células y tejidos.</p>
+
+  <h3 class="sub">Colorantes ácidos y básicos: la lógica de las cargas</h3>
+  <p>Casi toda la tinción se explica por <strong>atracción de cargas opuestas</strong>. Este es probablemente el concepto más importante del bloque.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Colorantes básicos y ácidos: basofilia y acidofilia">
+      <!-- BÁSICO -->
+      <rect x="12" y="20" width="356" height="264" rx="16" fill="#EEE3F6" stroke="#7A3E9D" stroke-width="1.5"/>
+      <text x="34" y="52" font-family="Fraunces, serif" font-size="20" fill="#4B1E73" font-weight="600">Colorante BÁSICO</text>
+      <rect x="34" y="66" width="120" height="26" rx="13" fill="#7A3E9D"/>
+      <text x="94" y="84" font-family="IBM Plex Mono, monospace" font-size="13" fill="#fff" text-anchor="middle">carga (+)</text>
+      <text x="34" y="120" font-family="Inter, sans-serif" font-size="13" fill="#3a3348">Reacciona con componentes</text>
+      <text x="34" y="139" font-family="Inter, sans-serif" font-size="13" fill="#3a3348">ANIÓNICOS, carga (−):</text>
+      <text x="46" y="163" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• fosfato de ácidos nucleicos</text>
+      <text x="46" y="182" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• sulfato de glucosaminoglucanos</text>
+      <text x="46" y="201" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• carboxilo de proteínas</text>
+      <rect x="34" y="218" width="322" height="48" rx="10" fill="#fff" stroke="#c9aede"/>
+      <text x="46" y="238" font-family="Inter, sans-serif" font-size="12.5" fill="#5C5470">Afinidad = <tspan font-weight="700" fill="#7A3E9D">BASOFILIA</tspan></text>
+      <text x="46" y="257" font-family="Inter, sans-serif" font-size="12.5" fill="#5C5470">Tiñe el <tspan font-weight="700" fill="#4B1E73">núcleo</tspan> · Ej.: azul de toluidina, hematoxilina*</text>
+      <!-- ÁCIDO -->
+      <rect x="392" y="20" width="356" height="264" rx="16" fill="#FBE0EB" stroke="#D6336C" stroke-width="1.5"/>
+      <text x="414" y="52" font-family="Fraunces, serif" font-size="20" fill="#4B1E73" font-weight="600">Colorante ÁCIDO</text>
+      <rect x="414" y="66" width="120" height="26" rx="13" fill="#D6336C"/>
+      <text x="474" y="84" font-family="IBM Plex Mono, monospace" font-size="13" fill="#fff" text-anchor="middle">carga (−)</text>
+      <text x="414" y="120" font-family="Inter, sans-serif" font-size="13" fill="#3a3348">Reacciona con componentes</text>
+      <text x="414" y="139" font-family="Inter, sans-serif" font-size="13" fill="#3a3348">CATIÓNICOS, carga (+):</text>
+      <text x="426" y="163" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">• grupos amino de las proteínas</text>
+      <text x="426" y="188" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">(filamentos del citoplasma,</text>
+      <text x="426" y="205" font-family="Inter, sans-serif" font-size="12.5" fill="#3a3348">fibras extracelulares…)</text>
+      <rect x="414" y="218" width="322" height="48" rx="10" fill="#fff" stroke="#f0b6cd"/>
+      <text x="426" y="238" font-family="Inter, sans-serif" font-size="12.5" fill="#5C5470">Afinidad = <tspan font-weight="700" fill="#D6336C">ACIDOFILIA</tspan> (eosinofilia)</text>
+      <text x="426" y="257" font-family="Inter, sans-serif" font-size="12.5" fill="#5C5470">Tiñe el <tspan font-weight="700" fill="#D6336C">citoplasma</tspan> · Ej.: eosina, fucsina ácida</text>
+    </svg>
+    <figcaption>*La hematoxilina no es estrictamente básica: necesita un mordiente, pero se comporta como tal.</figcaption>
+  </figure>
+
+  <div class="call key">
+    <div class="h">🧠 Truco para memorizar</div>
+    <p>Colorante <strong>BÁSICO</strong> → estructura <strong>BASÓFILA</strong> → <strong>núcleo</strong> (azul/púrpura). &nbsp;Colorante <strong>ÁCIDO</strong> → estructura <strong>ACIDÓFILA/EOSINÓFILA</strong> → <strong>citoplasma</strong> (rosa). El colorante y la estructura que tiñe llevan el mismo "apellido".</p>
+  </div>
+  <p><strong>Influencia del pH:</strong> a pH alto (~10) los grupos aniónicos están ionizados y reaccionan bien con colorantes básicos; a pH bajo (&lt;4) solo los grupos sulfato siguen ionizados. Ajustando el pH se puede dirigir la tinción hacia grupos específicos.</p>
+
+  <h4 class="subsub">Metacromasia</h4>
+  <p>Algunos colorantes básicos <strong>cambian de color</strong> (de azul a púrpura o rojo) al reaccionar con componentes que tienen muchos <strong>polianiones</strong> (grupos sulfato/fosfato concentrados). Ocurre en el <strong>cartílago</strong>, los gránulos de <strong>heparina de los mastocitos</strong> y el RER de los plasmocitos. Ejemplo clásico: el <strong>azul de toluidina</strong> se ve púrpura-rojo.</p>
+
+  <h4 class="subsub">PAS (ácido peryódico de Schiff) y reacción de Feulgen</h4>
+  <p>La reacción de <term>PAS</term> tiñe <strong>hidratos de carbono</strong> y moléculas ricas en ellos de color <strong>rojo-magenta/púrpura</strong>. El ácido peryódico oxida los azúcares y forma grupos <strong>aldehído</strong>, que reaccionan con el reactivo de Schiff. Se usa para mostrar <strong>glucógeno</strong>, moco, <strong>membrana basal</strong> y fibras reticulares.</p>
+  <p>La <term>reacción de Feulgen</term> es una variante que tiñe el <strong>ADN</strong> (una hidrólisis débil con HCl genera los grupos aldehído). Es <strong>estequiométrica</strong>: el color es proporcional a la cantidad de ADN, por eso sirve para <strong>medirlo</strong>. Dato clave: el <strong>ARN no se tiñe</strong> con Feulgen porque carece de desoxirribosa.</p>
+
+  <h4 class="subsub">Digestión enzimática</h4>
+  <p>Sirve para <strong>confirmar qué se tiñó</strong>. Ejemplo: si tratas el corte con <strong>diastasa/amilasa</strong> antes del PAS y la tinción desaparece, era glucógeno. La <strong>ADNasa</strong> impide la tinción de Feulgen; la <strong>ARNasa</strong> evita la tinción del ergastoplasma.</p>
+
+  <h4 class="subsub">Histoquímica enzimática</h4>
+  <p>Localiza <strong>enzimas</strong> por su actividad (no la enzima en sí). Se usa un <strong>reactivo de captura</strong> (a menudo un metal pesado) que precipita el producto de la reacción justo en el sitio donde está la enzima. Ejemplos: <strong>fosfatasa ácida</strong> (marca lisosomas), fosfatasa alcalina, <strong>ATPasas</strong> (Na⁺/K⁺ = bomba de sodio), y la <strong>peroxidasa de rábano</strong> con DAB (da un producto pardo insoluble).</p>
+
+  <h3 class="sub">Inmunocitoquímica</h3>
+  <p>Se basa en la <strong>especificidad de la reacción entre un antígeno y su anticuerpo</strong>. Los anticuerpos (inmunoglobulinas) se marcan con <strong>fluorocromos</strong> (fluoresceína → emite luz verde; rodamina → rojo), con enzimas o con oro.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Tipo de anticuerpo</th><th>Origen</th><th>Característica</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Policlonal</strong></td><td>Animal inmunizado</td><td>Mezcla de anticuerpos de muchos clones distintos.</td></tr>
+        <tr><td><strong>Monoclonal</strong></td><td>Un solo clon — <strong>hibridoma</strong> (linfocito B + célula de mieloma)</td><td>Muy específico e idéntico. Usos clínicos: diagnóstico, detección de metástasis, inmunotoxinas.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Directa vs. indirecta:</strong> es una distinción muy típica de examen.</p>
+  <figure class="diagram">
+    <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Inmunofluorescencia directa e indirecta">
+      <!-- DIRECTA -->
+      <rect x="12" y="16" width="356" height="218" rx="16" fill="#FBE0EB" stroke="#D6336C" stroke-width="1.5"/>
+      <text x="34" y="46" font-family="Fraunces, serif" font-size="19" fill="#4B1E73" font-weight="600">DIRECTA</text>
+      <text x="34" y="66" font-family="Inter, sans-serif" font-size="12.5" fill="#5C5470">Un solo paso · menos sensible</text>
+      <!-- antigen -->
+      <rect x="60" y="180" width="250" height="16" rx="4" fill="#c9aede"/>
+      <path d="M150 180 l12 -22 l12 22 z" fill="#0E8A82"/>
+      <text x="176" y="172" font-family="Inter, sans-serif" font-size="11" fill="#5C5470">antígeno</text>
+      <!-- primary labeled Y -->
+      <g stroke="#D6336C" stroke-width="4" fill="none">
+        <path d="M162 156 l-14 -30 M162 156 l14 -30 M162 156 l0 -14"/>
+      </g>
+      <circle cx="148" cy="122" r="8" fill="#D6336C"/>
+      <circle cx="176" cy="122" r="8" fill="#D6336C"/>
+      <text x="196" y="120" font-family="Inter, sans-serif" font-size="11.5" fill="#3a3348">anticuerpo primario</text>
+      <text x="196" y="136" font-family="Inter, sans-serif" font-size="11.5" fill="#3a3348">marcado (fluorocromo)</text>
+      <!-- INDIRECTA -->
+      <rect x="392" y="16" width="356" height="218" rx="16" fill="#EEE3F6" stroke="#7A3E9D" stroke-width="1.5"/>
+      <text x="414" y="46" font-family="Fraunces, serif" font-size="19" fill="#4B1E73" font-weight="600">INDIRECTA</text>
+      <text x="414" y="66" font-family="Inter, sans-serif" font-size="12.5" fill="#5C5470">Dos pasos · más sensible (amplifica)</text>
+      <rect x="440" y="180" width="250" height="16" rx="4" fill="#c9aede"/>
+      <path d="M540 180 l12 -22 l12 22 z" fill="#0E8A82"/>
+      <!-- primary unlabeled -->
+      <g stroke="#7A3E9D" stroke-width="4" fill="none">
+        <path d="M552 156 l-13 -26 M552 156 l13 -26 M552 156 l0 -12"/>
+      </g>
+      <text x="600" y="150" font-family="Inter, sans-serif" font-size="11.5" fill="#3a3348">primario</text>
+      <text x="600" y="165" font-family="Inter, sans-serif" font-size="11.5" fill="#3a3348">sin marcar</text>
+      <!-- secondary labeled attaching -->
+      <g stroke="#D6336C" stroke-width="4" fill="none">
+        <path d="M540 128 l-12 -22 M540 128 l12 -22 M540 128 l0 -10"/>
+      </g>
+      <circle cx="528" cy="102" r="7" fill="#D6336C"/>
+      <circle cx="552" cy="102" r="7" fill="#D6336C"/>
+      <text x="575" y="105" font-family="Inter, sans-serif" font-size="11.5" fill="#3a3348">secundario marcado</text>
+    </svg>
+    <figcaption>En la indirecta, el anticuerpo secundario marcado se une al primario y amplifica la señal.</figcaption>
+  </figure>
+
+  <h3 class="sub">Hibridación e FISH</h3>
+  <p>La <term>hibridación</term> localiza <strong>ARNm o ADN</strong> usando una <strong>sonda de nucleótidos complementaria</strong> y marcada. Cuando se hace dentro de células o tejidos se llama hibridación <em>in situ</em>.</p>
+  <p>La técnica <term>FISH</term> (hibridación in situ con fluorescencia) usa sondas fluorescentes y permite ver varias a la vez. Tiene mucho uso clínico: <strong>diagnóstico prenatal</strong> (por ejemplo, detectar la trisomía 21 / síndrome de Down), cribado de cáncer, etc.</p>
+
+  <h3 class="sub">Autorradiografía</h3>
+  <p>Localiza <strong>material radiactivo</strong> en el tejido. Se administran precursores radiactivos (por ejemplo <strong>³H-timidina</strong> para el ADN o <strong>³H-uridina</strong> para el ARN), se cubre el corte con una emulsión fotográfica y, donde hubo radiactividad, aparecen <strong>granos de plata negros</strong>. Sirve para estudiar la síntesis y la secreción celular.</p>
+
+  <h3 class="sub">Microscopía de expansión (MEx)</h3>
+  <p>Mejora la resolución del microscopio óptico <strong>expandiendo físicamente la muestra</strong>. Se infiltra el tejido con <strong>hidrogeles expansibles</strong> (los mismos polímeros de los pañales), se anclan las moléculas, se gelifica y, al agregar agua, la muestra <strong>se expande de forma isotrópica</strong> (~4.5 veces), separando las moléculas para ver detalles antes imposibles. Aplicada a preparados patológicos de H&E se llama <strong>PatEx</strong>.</p>
+</section>
+
+<!-- BLOQUE 3: MICROSCOPÍA -->
+<section class="wrap block" id="micro">
+  <p class="eyebrow">Bloque 03</p>
+  <h2 class="sec">Microscopía</h2>
+  <p class="lead">Un microscopio amplía la imagen y permite ver más detalle del que capta el ojo. La clave para comparar microscopios es el poder de resolución.</p>
+
+  <h3 class="sub">Resolución ≠ aumento</h3>
+  <p>El <term>poder de resolución</term> es la capacidad de una lente para mostrar como <strong>separados</strong> dos puntos que están muy cerca. Cuidado: el <strong>aumento no mejora la resolución</strong> (la lente ocular agranda la imagen pero no añade detalle). La resolución depende sobre todo de la <strong>longitud de onda</strong> de lo que ilumina la muestra: cuanto menor sea, mejor resolución.</p>
+  <div class="call key">
+    <div class="h">📐 La fórmula</div>
+    <p>d = λ / (AN<sub>objetivo</sub> + AN<sub>condensador</sub>). Con λ = longitud de onda y AN = apertura numérica. <strong>Menor λ y mayor apertura → menor d → mejor resolución.</strong> Por eso el microscopio electrónico (electrones, λ ~2000× menor que la luz) resuelve muchísimo mejor.</p>
+  </div>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 760 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Escala de resolución del ojo y los microscopios">
+      <line x1="40" y1="70" x2="720" y2="70" stroke="#c9aede" stroke-width="3"/>
+      <text x="40" y="30" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B85A0" letter-spacing="1">MENOR RESOLUCIÓN</text>
+      <text x="720" y="30" font-family="IBM Plex Mono, monospace" font-size="11" fill="#8B85A0" letter-spacing="1" text-anchor="end">MAYOR RESOLUCIÓN</text>
+      <!-- points -->
+      <g font-family="Inter, sans-serif" text-anchor="middle">
+        <circle cx="70" cy="70" r="7" fill="#7A3E9D"/><text x="70" y="55" font-size="12" font-weight="600" fill="#4B1E73">Ojo</text><text x="70" y="98" font-size="11.5" fill="#5C5470">0.2 mm</text>
+        <circle cx="215" cy="70" r="7" fill="#D6336C"/><text x="215" y="55" font-size="12" font-weight="600" fill="#4B1E73">M. óptico</text><text x="215" y="98" font-size="11.5" fill="#5C5470">0.2 µm</text>
+        <circle cx="360" cy="70" r="7" fill="#D6336C"/><text x="360" y="55" font-size="12" font-weight="600" fill="#4B1E73">Superres.</text><text x="360" y="98" font-size="11.5" fill="#5C5470">10–100 nm</text>
+        <circle cx="500" cy="70" r="7" fill="#0E8A82"/><text x="500" y="55" font-size="12" font-weight="600" fill="#4B1E73">MEB</text><text x="500" y="98" font-size="11.5" fill="#5C5470">2.5 nm</text>
+        <circle cx="620" cy="70" r="7" fill="#0E8A82"/><text x="620" y="55" font-size="12" font-weight="600" fill="#4B1E73">MET</text><text x="620" y="98" font-size="11.5" fill="#5C5470">0.05 nm</text>
+        <circle cx="712" cy="70" r="7" fill="#0E8A82"/><text x="712" y="55" font-size="12" font-weight="600" fill="#4B1E73">MFA</text><text x="712" y="98" font-size="11.5" fill="#5C5470">50 pm</text>
+      </g>
+      <text x="380" y="140" font-family="Inter, sans-serif" font-size="12" fill="#8B85A0" text-anchor="middle">mm → µm → nm → pm &nbsp;·&nbsp; cada salto es ~1000× más pequeño</text>
+    </svg>
+    <figcaption>Distancia mínima que cada instrumento puede resolver (tabla 1-3 del capítulo).</figcaption>
+  </figure>
+
+  <h3 class="sub">El microscopio óptico de campo claro</h3>
+  <p>Es el que usan la mayoría de los estudiantes. Sus partes básicas (siguiendo el recorrido de la luz):</p>
+  <ul class="clean">
+    <li><strong>Fuente de luz</strong> (lámpara en la base).</li>
+    <li><strong>Lente condensadora:</strong> enfoca el haz de luz sobre la muestra.</li>
+    <li><strong>Platina:</strong> donde se coloca el portaobjetos.</li>
+    <li><strong>Lente objetivo:</strong> recoge la luz que atravesó la muestra (aporta la resolución).</li>
+    <li><strong>Lente ocular:</strong> por donde se mira; solo aumenta, no mejora la resolución.</li>
+  </ul>
+  <p>La muestra debe ser <strong>fina y estar teñida</strong>: si no, no hay suficiente contraste.</p>
+
+  <div class="call tip">
+    <div class="h">🍊 De 2D a 3D (el ejemplo de la naranja)</div>
+    <p>Los órganos son tridimensionales, pero los cortes son bidimensionales. Al observar un corte hay que <strong>reconstruir mentalmente la tercera dimensión</strong>: una misma estructura esférica se ve muy distinta según el plano de corte (como rebanar una naranja). Además, en cualquier paso pueden aparecer <term>artificios</term> (errores de preparación: pliegues, precipitados, etc.); conviene aprender a reconocerlos.</p>
+  </div>
+
+  <h3 class="sub">Otros sistemas ópticos</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Sistema</th><th>Para qué sirve / dato clave</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Contraste de fase</strong></td><td>Ver células y tejidos <strong>vivos sin teñir</strong> (usa diferencias de índice de refracción). Variante: interferencia diferencial de Nomarski.</td></tr>
+        <tr><td><strong>Campo oscuro</strong></td><td>Objeto brillante sobre fondo oscuro (el objetivo solo capta luz refractada). Clínica: cristales en orina (ácido úrico, oxalato) y <strong>espiroquetas</strong> (<em>Treponema pallidum</em>, sífilis).</td></tr>
+        <tr><td><strong>Fluorescencia</strong></td><td>Moléculas que fluorescen bajo luz UV. Base de la inmunofluorescencia. La de <strong>lámina de luz (MFLL)</strong> secciona ópticamente muestras transparentes con un plano fino de láser.</td></tr>
+        <tr><td><strong>Polarización</strong></td><td>Filtro polarizador + analizador. Detecta estructuras ordenadas que rotan el plano de la luz = <strong>birrefringencia</strong> (doble refracción). Ej.: músculo estriado, cristales de las células de Leydig.</td></tr>
+        <tr><td><strong>Ultravioleta (UV)</strong></td><td>Lentes de cuarzo y luz UV (~200 nm), resolución 0.1 µm. Mide ADN/ARN (Feulgen). <strong>No se mira directo</strong> (daña el ojo).</td></tr>
+        <tr><td><strong>Confocal de barrido</strong></td><td>Un <strong>detector de apertura</strong> (orificio puntiforme) deja pasar solo la luz "en foco" → secciona ópticamente en 3D con gran claridad. Es como una "TC" de la muestra.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub">Microscopía de superresolución</h3>
+  <p>Superan el <strong>límite de difracción</strong> de la luz (mejoran la resolución al menos ×2). Tres familias de métodos:</p>
+  <ul class="clean">
+    <li><strong>Localización de molécula única:</strong> PALM, STORM.</li>
+    <li><strong>Iluminación estructurada (SIM):</strong> resolución ~100 nm.</li>
+    <li><strong>Barrido puntual (STED, isoSTED):</strong> resolución 30–80 nm.</li>
+  </ul>
+
+  <h3 class="sub">Microscopía electrónica</h3>
+  <p>Usa un haz de electrones en lugar de luz. La longitud de onda es ~2000× menor, así que la resolución es muchísimo mayor.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th></th><th><span class="abbr">MET</span> · transmisión</th><th><span class="abbr">MEB</span> · barrido</th></tr></thead>
+      <tbody>
+        <tr><td><strong>El haz…</strong></td><td><strong>Atraviesa</strong> la muestra</td><td><strong>Barre la superficie</strong> (no la atraviesa)</td></tr>
+        <tr><td><strong>Muestra</strong></td><td>Ver el <strong>interior</strong>; cortes ultrafinos (50–150 nm)</td><td>Imagen <strong>3D de la superficie</strong></td></tr>
+        <tr><td><strong>Resolución</strong></td><td>0.05 nm teórica</td><td>2.5 nm</td></tr>
+        <tr><td><strong>Preparación</strong></td><td>Glutaraldehído + tetróxido de osmio; resina epóxica; cuchilla de diamante; tinción con uranilo y plomo</td><td>Recubrir con oro/carbono</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Criofractura:</strong> técnica especial para el MET. Se fractura una muestra congelada para ver el <strong>interior de las membranas</strong> (se generan la cara E y la cara P). Muy útil para estudiar la zónula ocluyente.</p>
+
+  <h3 class="sub">Microscopía de fuerza atómica (MFA)</h3>
+  <p>Es un microscopio <strong>NO óptico</strong>. Una <strong>púa finísima</strong> (casi del tamaño de un átomo), montada en un soporte voladizo flexible, recorre la superficie de la muestra "tocándola"; un láser detecta sus movimientos y construye la topografía a resolución molecular o atómica (funciona en modo de contacto o de percusión). <strong>Gran ventaja:</strong> la muestra <strong>no necesita vacío</strong>, incluso puede estar sumergida en agua → permite estudiar <strong>células vivas</strong>.</p>
+
+  <h3 class="sub">Microscopía virtual</h3>
+  <p>Los preparados se digitalizan con un <strong>escáner</strong>, se guardan en servidores y se ven en cualquier dispositivo (computadora, tableta, teléfono). Permite <strong>telepatología</strong>, anotaciones sobre el preparado y aprendizaje colaborativo.</p>
+</section>
+
+<!-- CUADROS CLÍNICOS -->
+<section class="wrap">
+  <p class="eyebrow">Correlación clínica</p>
+  <h2 class="sec">Los 4 cuadros del capítulo</h2>
+  <p class="lead">Los recuadros suelen dar preguntas de examen porque conectan la técnica con la práctica médica.</p>
+
+  <div class="clinic">
+    <span class="badge">Cuadro 1-1 · Clínica</span>
+    <h4>Biopsias por congelación (cortes por congelación)</h4>
+    <p>El patólogo evalúa tejido <strong>durante la cirugía</strong> para un diagnóstico inmediato o para revisar los márgenes de una resección. Tres pasos: se <strong>congela</strong> la muestra, se corta en un <strong>criostato</strong> (cortes de 5–10 µm) y se tiñe (H&E, azul de metileno, PAS).</p>
+    <p>Todo el proceso puede terminar en unos <strong>10 minutos</strong>, y el resultado se comunica directo al cirujano que espera en el quirófano.</p>
+  </div>
+
+  <div class="clinic">
+    <span class="badge">Cuadro 1-2 · Funcional</span>
+    <h4>Microespectrofotometría de Feulgen</h4>
+    <p>Mide la cantidad de <strong>ADN</strong> y la <strong>ploidía</strong> de las células (cuántas veces se multiplica el ADN normal). Usa citometría estática (en secciones) y citometría de flujo (células individuales).</p>
+    <p>En clínica sirve para el pronóstico del cáncer: los tumores <strong>diploides</strong> suelen estar "bien diferenciados" y tienen <strong>mejor pronóstico</strong>; los <strong>aneuploides</strong>, peor.</p>
+  </div>
+
+  <div class="clinic">
+    <span class="badge">Cuadro 1-3 · Clínica</span>
+    <h4>Anticuerpos monoclonales en medicina</h4>
+    <p>Se usan mucho en inmunocitoquímica y en clínica: <strong>diagnóstico</strong>, detección de metástasis, diferenciar subtipos de tumores e identificar microorganismos. Conjugados con inmunotoxinas o quimioterápicos permiten dirigir el tratamiento a células tumorales específicas.</p>
+  </div>
+
+  <div class="clinic">
+    <span class="badge">Cuadro 1-4 · Funcional</span>
+    <h4>Uso correcto del microscopio óptico</h4>
+    <p>La clave de una buena imagen es la <strong>iluminación Köhler</strong>. Pasos: enfocar la muestra, cerrar el diafragma de campo, enfocar el condensador, centrar el diafragma de campo y ajustar el diafragma del condensador (~2/3 de la apertura del objetivo) para el mejor equilibrio entre resolución y contraste.</p>
+  </div>
+</section>
+
+<!-- FLASHCARDS -->
+<section class="wrap">
+  <p class="eyebrow">Repaso activo</p>
+  <h2 class="sec">Flashcards</h2>
+  <p class="lead">La mejor forma de estudiar para el examen: tapa la respuesta, intenta responder en voz alta y luego voltea la tarjeta. Haz clic en cualquier tarjeta para verla.</p>
+  <div class="fc-bar">
+    <span class="fc-hint" id="fcCount"></span>
+    <div>
+      <button class="fc-btn" id="flipAll">Voltear todas</button>
+      <button class="fc-btn" id="resetAll">Reiniciar</button>
+    </div>
+  </div>
+  <div class="fc-grid" id="fcGrid"></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Guía de estudio · Capítulo 1 "Técnicas" · <em>Histología. Texto y Atlas</em> (Ross), 8ª edición.</div>
+    <div>Material de repaso hecho para acompañar la lectura del libro, no lo sustituye. ¡Mucho éxito en el examen! 💪</div>
+  </div>
+</footer>
+
+<script>
+  const cards = [
+    ["Concepto","¿Qué es la histología?","Es la <strong>anatomía microscópica</strong>: el estudio de la estructura microscópica de células, tejidos y órganos y su relación con la <strong>función</strong>."],
+    ["Preparación","¿Cuáles son los 3 pasos de la preparación del tejido?","1) <strong>Fijación</strong>; 2) deshidratación + <strong>inclusión en parafina</strong> y corte; 3) montaje y <strong>tinción</strong> (H&E)."],
+    ["Preparación","¿Cuál es el fijador más usado?","La <strong>formalina</strong> (formaldehído al 37%, \"formol\")."],
+    ["Trampa","¿Qué NO fija bien la formalina y qué se usa en su lugar?","No fija bien <strong>lípidos ni membranas</strong>. Para eso se usa <strong>tetróxido de osmio</strong>."],
+    ["Preparación","¿Para qué sirve la fijación?","Detener el metabolismo, evitar la <strong>autólisis</strong>, matar microorganismos y endurecer el tejido."],
+    ["Tinción","¿Qué tiñe la hematoxilina y de qué color?","Estructuras <strong>basófilas</strong> (núcleo, ácidos nucleicos), de <strong>azul/púrpura</strong>."],
+    ["Tinción","¿Qué tiñe la eosina y de qué color?","Estructuras <strong>acidófilas/eosinófilas</strong> (citoplasma), de <strong>rosa/rojo</strong>."],
+    ["Cargas","Colorante BÁSICO: ¿carga? ¿con qué reacciona? ¿afinidad?","Carga <strong>positiva</strong>; reacciona con componentes <strong>aniónicos</strong> (fosfato, sulfato, carboxilo); afinidad = <strong>basofilia</strong>."],
+    ["Cargas","Colorante ÁCIDO: ¿carga? ¿con qué reacciona?","Carga <strong>negativa</strong>; reacciona con componentes <strong>catiónicos</strong> (grupos amino); afinidad = <strong>acidofilia</strong>."],
+    ["Tinción","¿Qué es la metacromasia?","Cuando un colorante básico <strong>cambia de color</strong> al unirse a componentes con muchos polianiones (ej.: azul de toluidina se ve púrpura en cartílago y mastocitos)."],
+    ["Tinción","¿Qué tiñe el PAS y de qué color?","<strong>Hidratos de carbono</strong> (glucógeno, moco, membrana basal, fibras reticulares), de <strong>rojo-magenta/púrpura</strong>."],
+    ["Tinción","¿En qué se basa la reacción de Feulgen y qué permite?","Hidrólisis del <strong>ADN</strong> → grupos aldehído → reactivo de Schiff. Es <strong>estequiométrica</strong>, así que permite medir la cantidad de ADN."],
+    ["Trampa","¿El ARN se tiñe con Feulgen?","<strong>No</strong>, porque carece de desoxirribosa."],
+    ["Confirmación","¿Cómo confirmas con enzimas que algo es glucógeno?","Tratando el corte con <strong>diastasa/amilasa</strong> antes del PAS: si la tinción <strong>desaparece</strong>, era glucógeno."],
+    ["Enzimas","Histoquímica enzimática: ¿qué se detecta?","La <strong>actividad</strong> de la enzima (no la enzima en sí), usando un reactivo de captura que precipita el producto en el sitio. Ej.: fosfatasa ácida = lisosomas."],
+    ["Inmuno","¿En qué se basa la inmunocitoquímica?","En la <strong>especificidad</strong> de la reacción entre un <strong>antígeno y su anticuerpo</strong>."],
+    ["Inmuno","Monoclonal vs. policlonal","<strong>Monoclonal:</strong> un solo clon (hibridoma), muy específico. <strong>Policlonal:</strong> mezcla de muchos clones (animal inmunizado)."],
+    ["Inmuno","Inmunofluorescencia directa vs. indirecta","<strong>Directa:</strong> un anticuerpo primario marcado (1 paso). <strong>Indirecta:</strong> primario sin marcar + secundario marcado; <strong>más sensible</strong> (amplifica la señal)."],
+    ["Molecular","¿Qué es FISH y un uso clínico?","Hibridación in situ con <strong>fluorescencia</strong>; localiza ADN/ARNm con sondas fluorescentes. Uso: <strong>diagnóstico prenatal</strong> (ej. trisomía 21)."],
+    ["Molecular","¿Qué localiza la autorradiografía?","<strong>Material radiactivo</strong> (ej. ³H-timidina en el ADN): aparece como <strong>granos de plata negros</strong> sobre emulsión fotográfica."],
+    ["Microscopía","Resolución vs. aumento","<strong>Resolución</strong> = distinguir dos puntos cercanos como separados. El <strong>aumento no mejora la resolución</strong>."],
+    ["Microscopía","Resolución del ojo vs. microscopio óptico","Ojo humano: <strong>0.2 mm</strong>. Microscopio óptico de campo claro: <strong>0.2 µm</strong>."],
+    ["Microscopía","¿Qué microscopio ve células vivas sin teñir?","El de <strong>contraste de fase</strong>."],
+    ["Microscopía","Campo oscuro: un uso clínico","Detectar <strong>espiroquetas</strong> (<em>Treponema pallidum</em>, sífilis) y cristales en orina."],
+    ["Microscopía","¿Qué es la birrefringencia y en qué microscopio se ve?","<strong>Doble refracción</strong> de estructuras ordenadas; se observa con el microscopio de <strong>polarización</strong> (ej. músculo estriado)."],
+    ["Microscopía","Confocal: ¿componente clave?","El <strong>detector de apertura</strong> (orificio puntiforme), que elimina la luz fuera de foco y permite seccionar ópticamente en 3D."],
+    ["Microscopía","MET vs. MEB","<strong>MET:</strong> los electrones <strong>atraviesan</strong> la muestra (interior, cortes ultrafinos). <strong>MEB:</strong> <strong>barren la superficie</strong> (imagen 3D de superficie)."],
+    ["Microscopía","MFA: ¿qué la hace especial?","Es <strong>no óptica</strong>: una púa en soporte voladizo recorre la superficie. La muestra <strong>no necesita vacío</strong> y puede estar en agua → células vivas."],
+    ["Clínica","¿Qué es una biopsia por congelación y cuánto tarda?","Evaluación de tejido <strong>durante la cirugía</strong>: se congela, se corta en criostato y se tiñe, en unos <strong>10 minutos</strong>."],
+    ["Clínica","¿Qué es la iluminación Köhler?","El ajuste estándar de los microscopios modernos para lograr una <strong>iluminación óptima</strong> (equilibrio entre resolución y contraste)."]
+  ];
+
+  const grid = document.getElementById('fcGrid');
+  cards.forEach(([cat,q,a])=>{
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="face front">
+          <div class="lab">${cat}</div>
+          <div class="q">${q}</div>
+          <div class="flipnote">↻ clic para ver la respuesta</div>
+        </div>
+        <div class="face back">
+          <div class="lab">Respuesta</div>
+          <div class="a">${a}</div>
+        </div>
+      </div>`;
+    card.addEventListener('click',()=>card.classList.toggle('flip'));
+    grid.appendChild(card);
+  });
+
+  document.getElementById('fcCount').textContent = cards.length + ' tarjetas de repaso';
+  let allFlipped = false;
+  document.getElementById('flipAll').addEventListener('click',()=>{
+    allFlipped = !allFlipped;
+    document.querySelectorAll('.card').forEach(c=>c.classList.toggle('flip',allFlipped));
+  });
+  document.getElementById('resetAll').addEventListener('click',()=>{
+    allFlipped = false;
+    document.querySelectorAll('.card').forEach(c=>c.classList.remove('flip'));
+  });
+</script>
+</body>
+</html>
