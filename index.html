@@ -222,6 +222,7 @@
     a{color:inherit;text-decoration:none}
   }
 
+  
   /* ---------- CATÁLOGO DE TÉCNICAS (añadido) ---------- */
   .chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:600;
     letter-spacing:.03em;padding:3px 9px;border-radius:999px;border:1px solid transparent;white-space:nowrap}
@@ -246,6 +247,12 @@
   .tcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--cat,var(--hema))}
   .tcard .viz{flex:none;width:104px;display:flex;flex-direction:column;gap:5px}
   .tcard .viz svg{width:104px;height:78px;border-radius:10px;border:1px solid var(--line);display:block}
+  .tcard .viz img{width:104px;height:78px;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block;background:var(--paper-2)}
+  .img-credits{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 16px;box-shadow:var(--shadow)}
+  .img-credits summary{cursor:pointer;font-weight:600;color:var(--hema-deep);font-size:14px;padding:10px 0;font-family:var(--body)}
+  .img-credits ul{margin:6px 0 12px;padding-left:18px}
+  .img-credits li{font-size:12.5px;color:var(--ink-soft);margin-bottom:6px;line-height:1.5}
+  .img-credits a{color:var(--eosin);word-break:break-word}
   .tcard .viz .vcap{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;
     color:var(--ink-faint);text-align:center}
   .tcard .body{min-width:0}
@@ -259,13 +266,12 @@
   .tcard .mem{margin-top:8px;background:var(--paper-2);border-radius:9px;padding:7px 10px;
     font-size:12px;color:var(--ink-soft)}
   .tcard.mcard{padding-left:18px}
-  .tcard.mcard .body{width:100%}
 
   @media (max-width:680px){
     .tech-grid{grid-template-columns:1fr}
     .tcard{flex-direction:column}
     .tcard .viz{width:100%}
-    .tcard .viz svg{width:100%;height:auto;aspect-ratio:120/90}
+    .tcard .viz svg,.tcard .viz img{width:100%;height:auto;aspect-ratio:120/90}
   }
   @media print{
     .tcard{page-break-inside:avoid}
@@ -923,7 +929,7 @@
     <h3 class="gh" style="--cat:var(--hema)">Hematoxilinas y eosina</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F4C6D7"/><ellipse cx="20" cy="22" rx="5" ry="4.0" fill="#6E2C91"/><ellipse cx="46" cy="40" rx="5" ry="4.0" fill="#6E2C91"/><ellipse cx="78" cy="26" rx="5" ry="4.0" fill="#6E2C91"/><ellipse cx="100" cy="52" rx="5" ry="4.0" fill="#6E2C91"/><ellipse cx="34" cy="66" rx="5" ry="4.0" fill="#6E2C91"/><ellipse cx="66" cy="70" rx="5" ry="4.0" fill="#6E2C91"/><ellipse cx="94" cy="80" rx="5" ry="4.0" fill="#6E2C91"/><ellipse cx="14" cy="54" rx="5" ry="4.0" fill="#6E2C91"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Emphysema%20H%20and%20E.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">01</span><h4>Hematoxilina y Eosina (H&E)</h4></div>
           <span class="chip chip-mix">Mixto (ácido + básico)</span>
@@ -933,7 +939,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ECE6F2"/><ellipse cx="22" cy="24" rx="5" ry="4.0" fill="#17102b"/><ellipse cx="50" cy="38" rx="5" ry="4.0" fill="#17102b"/><ellipse cx="80" cy="28" rx="5" ry="4.0" fill="#17102b"/><ellipse cx="100" cy="56" rx="5" ry="4.0" fill="#17102b"/><ellipse cx="36" cy="64" rx="5" ry="4.0" fill="#17102b"/><ellipse cx="70" cy="72" rx="5" ry="4.0" fill="#17102b"/><ellipse cx="96" cy="80" rx="5" ry="4.0" fill="#17102b"/><ellipse cx="14" cy="50" rx="5" ry="4.0" fill="#17102b"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Elastic_fibers_weigerts_elastic_stain_non-lactating_mammary_glands.png?width=520" /><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">02</span><h4>Hematoxilina férrica de Weigert</h4></div>
           <span class="chip chip-basic">Básico</span>
@@ -943,7 +949,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#E7D8C6"/><path d="M2 24 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F5FA8" stroke-width="3" opacity="1.0" stroke-linecap="round"/><path d="M2 40 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F5FA8" stroke-width="3" opacity="1.0" stroke-linecap="round"/><path d="M2 56 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F5FA8" stroke-width="3" opacity="1.0" stroke-linecap="round"/><path d="M2 72 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F5FA8" stroke-width="3" opacity="1.0" stroke-linecap="round"/><ellipse cx="30" cy="18" rx="4" ry="3.2" fill="#22406e"/><ellipse cx="80" cy="34" rx="4" ry="3.2" fill="#22406e"/><ellipse cx="60" cy="66" rx="4" ry="3.2" fill="#22406e"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Acute_myocardial_infarction_with_contraction_band_necrosis_%281%29_PTAH.JPG?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">03</span><h4>Hematoxilina ácida fosfotúngstica de Mallory (PTAH)</h4></div>
           <span class="chip chip-spec">Colorante especial</span>
@@ -958,7 +964,7 @@
     <h3 class="gh" style="--cat:var(--eosin)">Tejido conjuntivo · Tricrómicas</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--eosin)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ffffff"/><rect y="6" width="120" height="26" fill="#C0392B"/><rect y="38" width="120" height="22" fill="#2F6FB0"/><rect y="64" width="120" height="26" fill="#C0392B" opacity=".85"/><ellipse cx="24" cy="20" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="90" cy="50" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="50" cy="76" rx="3.5" ry="2.8" fill="#17102b"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://thumbs.dreamstime.com/b/col%C3%A1geno-y-fibras-el%C3%A1sticas-tricho-cajalgallego-dermis-de-una-piel-delgada-manchada-con-trichrome-este-m%C3%A9todo-las-se-manchan-en-230928996.jpg?width=520" /><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">04</span><h4>Tricrómica de Cajal-Gallego</h4></div>
           <span class="chip chip-acid">Ácido</span>
@@ -968,7 +974,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--eosin)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ffffff"/><rect width="120" height="90" fill="#E8C23A"/><path d="M2 18 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#C0392B" stroke-width="5" opacity="1.0" stroke-linecap="round"/><path d="M2 34 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#C0392B" stroke-width="5" opacity="1.0" stroke-linecap="round"/><path d="M2 52 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#C0392B" stroke-width="5" opacity="1.0" stroke-linecap="round"/><path d="M2 70 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#C0392B" stroke-width="5" opacity="1.0" stroke-linecap="round"/><ellipse cx="28" cy="26" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="84" cy="44" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="56" cy="72" rx="3.5" ry="2.8" fill="#17102b"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/EvG%20nerve%20and%20neuroma.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">05</span><h4>Técnica de Van Gieson</h4></div>
           <span class="chip chip-acid">Ácido</span>
@@ -978,8 +984,8 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--eosin)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ffffff"/><rect width="120" height="90" fill="#E3874E"/><path d="M2 16 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F6FB0" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 34 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F6FB0" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 54 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F6FB0" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 74 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2F6FB0" stroke-width="6" opacity="1.0" stroke-linecap="round"/><ellipse cx="30" cy="24" rx="3.5" ry="2.8" fill="#7a1f2b"/><ellipse cx="86" cy="46" rx="3.5" ry="2.8" fill="#7a1f2b"/><ellipse cx="58" cy="70" rx="3.5" ry="2.8" fill="#7a1f2b"/></svg><div class="vcap">cómo se ve</div></div>
-        <div class="body">
+        <div class="viz"><img loading="lazy" src="https://mmegias.webs.uvigo.es/6-tecnicas/protocolos/imagenes/protocolos-azan-heidenhain-3.jpg?width=520"/><div class="vcap">foto real</div></div>
+          <div class="body">
           <div class="thead"><span class="tnum">06</span><h4>Técnica Azán de Heidenhain</h4></div>
           <span class="chip chip-acid">Ácido</span>
           <p class="ti"><span class="k">Tiñe:</span> Colágeno de AZUL brillante; núcleos y citoplasma de rojo-naranja.</p>
@@ -988,7 +994,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--eosin)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ffffff"/><rect width="120" height="90" fill="#C0392B"/><path d="M2 16 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#1F8A70" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 34 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#1F8A70" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 54 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#1F8A70" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 74 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#1F8A70" stroke-width="6" opacity="1.0" stroke-linecap="round"/><ellipse cx="28" cy="24" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="84" cy="46" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="58" cy="70" rx="3.5" ry="2.8" fill="#17102b"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Masson%27s_Trichrome_Stain_%28Rat_Airway_Section%29.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">07</span><h4>Tricrómica de Masson</h4></div>
           <span class="chip chip-acid">Ácido</span>
@@ -998,7 +1004,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--eosin)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ffffff"/><rect width="120" height="90" fill="#C24B3A"/><path d="M2 16 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2E8B57" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 34 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2E8B57" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 54 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2E8B57" stroke-width="6" opacity="1.0" stroke-linecap="round"/><path d="M2 74 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#2E8B57" stroke-width="6" opacity="1.0" stroke-linecap="round"/><ellipse cx="30" cy="26" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="86" cy="44" rx="3.5" ry="2.8" fill="#17102b"/><ellipse cx="56" cy="72" rx="3.5" ry="2.8" fill="#17102b"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dilated_peri-tubular_capillaries_filled_with_sickled_RBCs%2C_original_Gomori%27s_trichrome_stain.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">08</span><h4>Tricrómica de Gomori</h4></div>
           <span class="chip chip-acid">Ácido</span>
@@ -1013,7 +1019,7 @@
     <h3 class="gh" style="--cat:var(--teal)">Tejido conjuntivo · Fibras</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--teal)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ECE6F2"/><path d="M10 80 C40 40 40 40 70 20 M70 20 C90 30 100 60 115 55 M40 60 C55 55 60 45 75 48 M20 30 C35 45 50 40 60 65" fill="none" stroke="#141010" stroke-width="1.7"/><ellipse cx="70" cy="20" rx="2.2" ry="1.8" fill="#141010"/><ellipse cx="40" cy="60" rx="2.2" ry="1.8" fill="#141010"/><ellipse cx="100" cy="60" rx="2.2" ry="1.8" fill="#141010"/><ellipse cx="20" cy="30" rx="2.2" ry="1.8" fill="#141010"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/PXA%20Gomori%20Reticulin%20Stain.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">09</span><h4>Doble impregnación argéntica</h4></div>
           <span class="chip chip-imp">Impregnación con plata</span>
@@ -1023,7 +1029,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--teal)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F1E7D7"/><path d="M2 16 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B3E1D" stroke-width="3" opacity="1.0" stroke-linecap="round"/><path d="M2 30 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B3E1D" stroke-width="3" opacity="1.0" stroke-linecap="round"/><path d="M2 46 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B3E1D" stroke-width="3" opacity="1.0" stroke-linecap="round"/><path d="M2 62 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B3E1D" stroke-width="3" opacity="1.0" stroke-linecap="round"/><path d="M2 78 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#6B3E1D" stroke-width="3" opacity="1.0" stroke-linecap="round"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://www.histoline.com/sites/default/files/images_products/Orcein-kit-staining.jpg?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">10</span><h4>Orceína</h4></div>
           <span class="chip chip-hist">Afinidad específica</span>
@@ -1033,7 +1039,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--teal)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ECE6F2"/><path d="M2 16 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3B1E5A" stroke-width="3.4" opacity="1.0" stroke-linecap="round"/><path d="M2 30 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3B1E5A" stroke-width="3.4" opacity="1.0" stroke-linecap="round"/><path d="M2 46 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3B1E5A" stroke-width="3.4" opacity="1.0" stroke-linecap="round"/><path d="M2 62 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3B1E5A" stroke-width="3.4" opacity="1.0" stroke-linecap="round"/><path d="M2 78 q15 -8 30 0 t30 0 t30 0 t30 0" fill="none" stroke="#3B1E5A" stroke-width="3.4" opacity="1.0" stroke-linecap="round"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://biosixshop.com/cdn/shop/files/RESORCINA-FUCSINA-1.png?v=1752536167&width=1946?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">11</span><h4>Resorcina-fucsina de Weigert</h4></div>
           <span class="chip chip-acid">Ácido</span>
@@ -1048,7 +1054,7 @@
     <h3 class="gh" style="--cat:var(--amber)">Carbohidratos</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--amber)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F4C6D7"/><circle cx="26" cy="30" r="12" fill="#B0246B" opacity="0.95"/><circle cx="64" cy="26" r="12" fill="#B0246B" opacity="0.95"/><circle cx="92" cy="50" r="12" fill="#B0246B" opacity="0.95"/><circle cx="40" cy="64" r="12" fill="#B0246B" opacity="0.95"/><circle cx="80" cy="74" r="12" fill="#B0246B" opacity="0.95"/><path d="M4 84 q30 -10 58 0 t58 0" fill="none" stroke="#B0246B" stroke-width="4"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Renal%20corpuscle.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">12</span><h4>Ácido peryódico de Schiff (PAS)</h4></div>
           <span class="chip chip-hist">Reacción histoquímica</span>
@@ -1058,7 +1064,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--amber)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#EAF1F1"/><circle cx="28" cy="30" r="13" fill="#1CA5B8" opacity="0.95"/><circle cx="66" cy="26" r="13" fill="#1CA5B8" opacity="0.95"/><circle cx="94" cy="52" r="13" fill="#1CA5B8" opacity="0.95"/><circle cx="42" cy="66" r="13" fill="#1CA5B8" opacity="0.95"/><circle cx="84" cy="76" r="13" fill="#1CA5B8" opacity="0.95"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Small%20intestine%20Alcian%20blue%20400x.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">13</span><h4>Alcian Blue</h4></div>
           <span class="chip chip-basic">Básico</span>
@@ -1068,7 +1074,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--amber)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#EFEFEA"/><circle cx="28" cy="30" r="12" fill="#1CA5B8" opacity="1.0"/><circle cx="50" cy="64" r="12" fill="#1CA5B8" opacity="1.0"/><circle cx="90" cy="70" r="12" fill="#1CA5B8" opacity="1.0"/><circle cx="70" cy="26" r="11" fill="#B0246B" opacity="1.0"/><circle cx="96" cy="50" r="11" fill="#B0246B" opacity="1.0"/><circle cx="20" cy="66" r="11" fill="#B0246B" opacity="1.0"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://mmegias.webs.uvigo.es/6-tecnicas/protocolos/imagenes/protocolos-PAS-AA.jpg?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">14</span><h4>Alcian Blue-PAS</h4></div>
           <span class="chip chip-hist">Reacción histoquímica</span>
@@ -1078,7 +1084,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--amber)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#160E2A"/><circle cx="24" cy="26" r="4.5" fill="#37E0A0" opacity="0.95"/><circle cx="52" cy="44" r="4.5" fill="#37E0A0" opacity="0.95"/><circle cx="84" cy="30" r="4.5" fill="#37E0A0" opacity="0.95"/><circle cx="100" cy="58" r="4.5" fill="#37E0A0" opacity="0.95"/><circle cx="38" cy="68" r="4.5" fill="#37E0A0" opacity="0.95"/><circle cx="72" cy="74" r="4.5" fill="#37E0A0" opacity="0.95"/><path d="M4 70 q56 -30 112 0" fill="none" stroke="#2b6f5a" stroke-width="1.4" opacity=".5"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://mmegias.webs.uvigo.es/6-tecnicas/imagenes/5-lectinas.png?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">15</span><h4>Lectinas</h4></div>
           <span class="chip chip-hist">Afinidad específica</span>
@@ -1093,7 +1099,7 @@
     <h3 class="gh" style="--cat:var(--hema)">Estudio del hueso</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#D9C7A6"/><g fill="none" stroke="#7A5A2E" stroke-width="2"><circle cx="60" cy="45" r="9"/><circle cx="60" cy="45" r="17"/><circle cx="60" cy="45" r="25"/><circle cx="60" cy="45" r="33"/></g><circle cx="60" cy="45" r="4" fill="#5a3f1e"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://elasadehenle.com/wp-content/uploads/2023/03/hueso-seco-5.png?w=1024?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">16</span><h4>Técnica de desgaste para hueso seco</h4></div>
           <span class="chip chip-none">No es tinción</span>
@@ -1103,7 +1109,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#C9B488"/><g stroke="#241a0e" stroke-width="1.3"><line x1="30" y1="20" x2="42" y2="34"/><line x1="80" y1="24" x2="70" y2="40"/><line x1="50" y1="60" x2="64" y2="66"/><line x1="92" y1="60" x2="80" y2="52"/></g><ellipse cx="30" cy="20" rx="3.2" ry="2.6" fill="#241a0e"/><ellipse cx="80" cy="24" rx="3.2" ry="2.6" fill="#241a0e"/><ellipse cx="50" cy="60" rx="3.2" ry="2.6" fill="#241a0e"/><ellipse cx="92" cy="60" rx="3.2" ry="2.6" fill="#241a0e"/><ellipse cx="60" cy="44" rx="3.2" ry="2.6" fill="#241a0e"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://microscopiovirtual.fmed.edu.uy/microscopio/miniaturas/31_hueso_fresco_schmorl.jpg?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">17</span><h4>Técnica de Schmorl</h4></div>
           <span class="chip chip-spec">Colorante especial</span>
@@ -1118,7 +1124,7 @@
     <h3 class="gh" style="--cat:var(--eosin)">Estudio de la sangre</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--eosin)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F7DFD0"/><circle cx="20" cy="24" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="46" cy="40" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="80" cy="26" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="100" cy="54" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="34" cy="68" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="70" cy="74" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="60" cy="48" r="14" fill="#F2B79C"/><circle cx="60" cy="48" r="9" fill="#5B2A82"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/WBC%20%28neutrophil%29%20at%20centre%2C%20numerous%20erythrocytes%20and%20platelets%20%28dot%20like%20bodies%29%20in%20Wright%27s%20stained%20peripheral%20blood%20smear%20%28PBS%29%20microscopy.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">18</span><h4>Tinción de Wright</h4></div>
           <span class="chip chip-mix">Mixto (ácido + básico)</span>
@@ -1128,7 +1134,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--eosin)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F7DFD0"/><circle cx="22" cy="26" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="52" cy="66" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="96" cy="34" r="9" fill="#E39C7E" opacity="0.9"/><circle cx="64" cy="44" r="15" fill="#8FB8DE"/><circle cx="64" cy="44" r="9" fill="#5B2A82"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bone%20marrow%20smear%20with%20May%20Gr%C3%BCnwald%E2%80%93Giemsa%20staining.png?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">19</span><h4>May-Grünwald Giemsa (MGG)</h4></div>
           <span class="chip chip-mix">Mixto (ácido + básico)</span>
@@ -1143,7 +1149,7 @@
     <h3 class="gh" style="--cat:var(--teal)">Sistema nervioso · Histoarquitectura</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--teal)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#EDE1F2"/><g fill="#6E2C91"><path d="M28 60 l14 -26 l14 26 z"/><path d="M74 64 l16 -30 l16 30 z"/></g><ellipse cx="42" cy="50" rx="2.6" ry="2.1" fill="#EDE1F2"/><ellipse cx="90" cy="54" rx="2.6" ry="2.1" fill="#EDE1F2"/><circle cx="38" cy="52" r="1.6" fill="#4B1E73" opacity="1.0"/><circle cx="46" cy="54" r="1.6" fill="#4B1E73" opacity="1.0"/><circle cx="86" cy="56" r="1.6" fill="#4B1E73" opacity="1.0"/><circle cx="94" cy="56" r="1.6" fill="#4B1E73" opacity="1.0"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nissl%20bodies%20in%20neurons%20of%20the%20spinal%20cord.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">20</span><h4>Técnica de Nissl</h4></div>
           <span class="chip chip-basic">Básico</span>
@@ -1158,7 +1164,7 @@
     <h3 class="gh" style="--cat:var(--amber)">Sistema nervioso · Mieloarquitectura</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--amber)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ffffff"/><rect width="120" height="90" fill="#1E7FA8"/><circle cx="26" cy="30" r="3.5" fill="#7A3E9D" opacity="1.0"/><circle cx="64" cy="26" r="3.5" fill="#7A3E9D" opacity="1.0"/><circle cx="92" cy="58" r="3.5" fill="#7A3E9D" opacity="1.0"/><circle cx="40" cy="66" r="3.5" fill="#7A3E9D" opacity="1.0"/><circle cx="84" cy="74" r="3.5" fill="#7A3E9D" opacity="1.0"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pons%20-%20very%20high%20mag.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">21</span><h4>Luxol Fast Blue y Klüver-Barrera</h4></div>
           <span class="chip chip-hist">Afinidad específica</span>
@@ -1168,7 +1174,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--amber)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#ECE9E1"/><g fill="none" stroke="#111" stroke-width="4"><circle cx="30" cy="34" r="10"/><circle cx="72" cy="30" r="9"/><circle cx="94" cy="60" r="8"/><circle cx="46" cy="64" r="9"/><circle cx="82" cy="72" r="7"/></g></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://www.revistac2.com/c2/wp-content/uploads/2019/10/tetraoxido-osmio.jpg?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">22</span><h4>Impregnación con tetróxido de osmio</h4></div>
           <span class="chip chip-imp">Impregnación con osmio</span>
@@ -1183,7 +1189,7 @@
     <h3 class="gh" style="--cat:var(--hema)">Sistema nervioso · Técnicas analíticas (plata)</h3>
     <div class="tech-grid">
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F0E6C8"/><g stroke="#111" fill="none" stroke-width="1.7"><path d="M60 46 l-18 -22 M60 46 l-24 -6 M60 46 l-14 20 M60 46 l18 -20 M60 46 l26 -2 M60 46 l16 22 M60 46 l2 -28 M60 46 l-2 30"/><path d="M42 24 l-8 -8 M36 40 l-12 -3 M46 66 l-8 12 M78 26 l8 -9 M86 44 l12 -2 M76 68 l8 12"/></g><circle cx="60" cy="46" r="6" fill="#111"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/GolgiStainedPyramidalCell.jpg?width=520" alt="Ejemplo real de la tinción" title="Foto: Wikimedia Commons"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">23</span><h4>Impregnación argéntica de Golgi</h4></div>
           <span class="chip chip-imp">Impregnación con plata</span>
@@ -1193,7 +1199,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F0E6C8"/><g stroke="#141010" fill="none" stroke-width="1.5"><path d="M6 26 q40 6 60 30 t46 20"/><path d="M6 60 q50 -10 70 6 t40 -2"/><path d="M20 84 q30 -30 60 -34"/></g><circle cx="66" cy="56" r="3" fill="#141010" opacity="1.0"/><circle cx="30" cy="44" r="3" fill="#141010" opacity="1.0"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy2OeCcf_vCx-6oUKfqDqkhHQ9DWBGRpVgh7vjB1CiAQ&s=10?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">24</span><h4>Impregnación argéntica de Cajal (terminaciones nerviosas)</h4></div>
           <span class="chip chip-imp">Impregnación con plata</span>
@@ -1203,7 +1209,7 @@
         </div>
       </article>
       <article class="tcard" style="--cat:var(--hema)">
-        <div class="viz"><svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img"><rect width="120" height="90" fill="#F0E6C8"/><g stroke="#141010" fill="none" stroke-width="1.4"><path d="M40 44 l-16 -12 M40 44 l-18 6 M40 44 l-10 18 M40 44 l14 -14 M40 44 l16 8 M40 44 l4 18"/><path d="M86 60 l-14 -10 M86 60 l-16 8 M86 60 l12 -14 M86 60 l14 10 M86 60 l-2 16"/></g><circle cx="40" cy="44" r="5" fill="#141010"/><circle cx="86" cy="60" r="4.5" fill="#141010"/></svg><div class="vcap">cómo se ve</div></div>
+        <div class="viz"><img loading="lazy" src="https://thumbs.dreamstime.com/b/microglia-carbonato-de-plata-rio-hortega-117240485.jpg?width=520"/><div class="vcap">foto real</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">25</span><h4>Del Río Hortega (carbonato de plata) para microglía</h4></div>
           <span class="chip chip-imp">Impregnación con plata</span>
@@ -1219,6 +1225,7 @@
     <p class="lead" style="margin-bottom:14px">No son tinciones: son las distintas formas de <em>mirar</em> la muestra. Lo importante es <strong>qué pregunta resuelve cada una</strong>.</p>
     <div class="tech-grid">
       <article class="tcard mcard" style="--cat:var(--teal)">
+        <div class="viz"><img loading="lazy" referrerpolicy="no-referrer" src="https://www.fcal.uner.edu.ar/wp-content/uploads/2019/12/examen-muestra-microscopio_1098-18424.jpg" alt="Ejemplo de Microscopía óptica"/><div class="vcap">imagen</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">01</span><h4>Microscopía óptica</h4></div>
           <p class="ti"><span class="k">Para qué sirve:</span> La de todos los días: luz visible que atraviesa un corte fino y teñido.</p>
@@ -1226,6 +1233,7 @@
         </div>
       </article>
       <article class="tcard mcard" style="--cat:var(--teal)">
+        <div class="viz"><img loading="lazy" referrerpolicy="no-referrer" src="https://admiramicro.com.mx/wp-content/uploads/2024/05/Elyra.png" alt="Ejemplo de Microscopía de superresolución"/><div class="vcap">imagen</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">02</span><h4>Microscopía de superresolución</h4></div>
           <p class="ti"><span class="k">Para qué sirve:</span> Ver cosas más pequeñas de lo que la luz normalmente permite.</p>
@@ -1233,6 +1241,7 @@
         </div>
       </article>
       <article class="tcard mcard" style="--cat:var(--teal)">
+        <div class="viz"><img loading="lazy" referrerpolicy="no-referrer" src="https://www.upm.es/Portal_inv/img/589" alt="Ejemplo de Microscopía electrónica de transmisión (TEM/MET)"/><div class="vcap">imagen</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">03</span><h4>Microscopía electrónica de transmisión (TEM/MET)</h4></div>
           <p class="ti"><span class="k">Para qué sirve:</span> Ver el INTERIOR de la célula con muchísimo detalle.</p>
@@ -1240,6 +1249,7 @@
         </div>
       </article>
       <article class="tcard mcard" style="--cat:var(--teal)">
+        <div class="viz"><img loading="lazy" referrerpolicy="no-referrer" src="https://cimav.edu.mx/wp-content/uploads/2018/11/Header-SEM.jpg" alt="Ejemplo de Microscopía electrónica de barrido (SEM/MEB)"/><div class="vcap">imagen</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">04</span><h4>Microscopía electrónica de barrido (SEM/MEB)</h4></div>
           <p class="ti"><span class="k">Para qué sirve:</span> Ver la SUPERFICIE de las cosas en 3D.</p>
@@ -1247,6 +1257,7 @@
         </div>
       </article>
       <article class="tcard mcard" style="--cat:var(--teal)">
+        <div class="viz"><img loading="lazy" referrerpolicy="no-referrer" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9cazkTRdo2KYC9RRXWGKoPFwauHQcsBaPDjRUU2Cxk0_0uwDcdErm40GO&s=10" alt="Ejemplo de Microscopía confocal"/><div class="vcap">imagen</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">05</span><h4>Microscopía confocal</h4></div>
           <p class="ti"><span class="k">Para qué sirve:</span> Fotos 'en capas' muy nítidas de muestras fluorescentes.</p>
@@ -1254,6 +1265,7 @@
         </div>
       </article>
       <article class="tcard mcard" style="--cat:var(--teal)">
+        <div class="viz"><img loading="lazy" referrerpolicy="no-referrer" src="https://fisica.uc.cl/wp-content/uploads/2023/05/AFM-1.jpg" alt="Ejemplo de Microscopía de fuerza atómica (MFA)"/><div class="vcap">imagen</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">06</span><h4>Microscopía de fuerza atómica (MFA)</h4></div>
           <p class="ti"><span class="k">Para qué sirve:</span> Un mapa 3D 'tocando' la superficie, sin usar luz.</p>
@@ -1261,6 +1273,7 @@
         </div>
       </article>
       <article class="tcard mcard" style="--cat:var(--teal)">
+        <div class="viz"><img loading="lazy" referrerpolicy="no-referrer" src="https://www.ayv.unrc.edu.ar/microscopiovirtual/caratula.jpg" alt="Ejemplo de Microscopía virtual"/><div class="vcap">imagen</div></div>
         <div class="body">
           <div class="thead"><span class="tnum">07</span><h4>Microscopía virtual</h4></div>
           <p class="ti"><span class="k">Para qué sirve:</span> Ver el preparado en la pantalla del celular o la computadora.</p>
@@ -1269,15 +1282,12 @@
       </article>
     </div>
   </div>
-  <div class="call tip" style="margin-top:26px">
-    <div class="h">🖼️ Sobre las imágenes</div>
-    <p>Los recuadros "cómo se ve" son <strong>esquemas de color</strong> hechos a mano para que memorices el aspecto típico de cada técnica (siempre cargan y no dependen de internet). Si quieres, puedo cambiarlos por <strong>fotos reales</strong> de preparados (de Wikimedia Commons, de libre uso) para las técnicas que tengan una buena foto disponible.</p>
-  </div>
+
 </section>
 
 <footer>
   <div class="wrap">
-    <div>Guía de estudio · Capítulo 1 "Técnicas" · <em>Histología. Texto y Atlas</em> (Ross), 8ª edición.</div>
+    <div>Guía de estudio · Capítulo 1 "Técnicas" · <em>Histología</em> (Ross), 8ª edición.</div>
     <div>Material de repaso hecho para acompañar la lectura del libro, no lo sustituye. ¡Mucho éxito en el examen! 💪</div>
   </div>
 </footer>
