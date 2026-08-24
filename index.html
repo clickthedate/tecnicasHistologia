@@ -936,6 +936,21 @@
   </div>
 </section>
 
+<!-- FLASHCARDS -->
+<section class="wrap">
+  <p class="eyebrow">Repaso activo</p>
+  <h2 class="sec">Flashcards</h2>
+  <p class="lead">La mejor forma de estudiar para el examen: tapa la respuesta, intenta responder en voz alta y luego voltea la tarjeta. Haz clic en cualquier tarjeta para verla.</p>
+  <div class="fc-bar">
+    <span class="fc-hint" id="fcCount"></span>
+    <div>
+      <button class="fc-btn" id="flipAll">Voltear todas</button>
+      <button class="fc-btn" id="resetAll">Reiniciar</button>
+    </div>
+  </div>
+  <div class="fc-grid" id="fcGrid"></div>
+</section>
+
 <!-- CATÁLOGO DE TÉCNICAS (añadido) -->
 <section class="wrap" id="catalogo">
   <p class="eyebrow">Catálogo visual</p>
@@ -1304,19 +1319,19 @@
 
 </section>
 
-<!-- FLASHCARDS (movidas al final) -->
+<!-- FLASHCARDS DE TINCIONES -->
 <section class="wrap">
-  <p class="eyebrow">Repaso activo</p>
-  <h2 class="sec">Flashcards</h2>
-  <p class="lead">La mejor forma de estudiar para el examen: tapa la respuesta, intenta responder en voz alta y luego voltea la tarjeta. Haz clic en cualquier tarjeta para verla.</p>
+  <p class="eyebrow">Repaso de tinciones</p>
+  <h2 class="sec">Flashcards de tinciones</h2>
+  <p class="lead">Preguntas específicas sobre las técnicas del catálogo de arriba: qué tiñe cada una y de qué color. Ideales para memorizar el "color típico" de cada tinción antes del examen.</p>
   <div class="fc-bar">
-    <span class="fc-hint" id="fcCount"></span>
+    <span class="fc-hint" id="fcCountTin"></span>
     <div>
-      <button class="fc-btn" id="flipAll">Voltear todas</button>
-      <button class="fc-btn" id="resetAll">Reiniciar</button>
+      <button class="fc-btn" id="flipAllTin">Voltear todas</button>
+      <button class="fc-btn" id="resetAllTin">Reiniciar</button>
     </div>
   </div>
-  <div class="fc-grid" id="fcGrid"></div>
+  <div class="fc-grid" id="fcGridTin"></div>
 </section>
 
 <footer>
@@ -1360,36 +1375,72 @@
     ["Clínica","¿Qué es la iluminación Köhler?","El ajuste estándar de los microscopios modernos para lograr una <strong>iluminación óptima</strong> (equilibrio entre resolución y contraste)."]
   ];
 
-  const grid = document.getElementById('fcGrid');
-  cards.forEach(([cat,q,a])=>{
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <div class="card-inner">
-        <div class="face front">
-          <div class="lab">${cat}</div>
-          <div class="q">${q}</div>
-          <div class="flipnote">↻ clic para ver la respuesta</div>
-        </div>
-        <div class="face back">
-          <div class="lab">Respuesta</div>
-          <div class="a">${a}</div>
-        </div>
-      </div>`;
-    card.addEventListener('click',()=>card.classList.toggle('flip'));
-    grid.appendChild(card);
-  });
+  const cardsTin = [
+    ["H&E","¿Qué tiñe la H&E y de qué color?","Núcleos de <strong>morado/azul</strong> (hematoxilina) y citoplasma de <strong>rosa</strong> (eosina). Es la tinción de rutina."],
+    ["Hematoxilina","¿Para qué sirve la hematoxilina férrica de Weigert?","Tiñe los <strong>núcleos</strong> de azul-negro fuerte y <strong>resiste los ácidos</strong> de las tricrómicas; por eso se usa para el núcleo <strong>antes</strong> de ellas."],
+    ["PTAH","¿Qué tiñe la PTAH (hematoxilina fosfotúngstica de Mallory)?","Fibras de la <strong>glía</strong>, <strong>estrías del músculo</strong> y <strong>fibrina</strong>, de color <strong>azul</strong>."],
+    ["Tricrómicas","¿Qué es una tinción tricrómica?","Usa <strong>3 colores</strong> para separar los componentes del tejido conjuntivo: colágeno, músculo/citoplasma y núcleo."],
+    ["Van Gieson","Van Gieson: ¿colores?","<strong>Colágeno rojo</strong> y <strong>músculo/citoplasma amarillo</strong>."],
+    ["Azán","Azán de Heidenhain: ¿color del colágeno?","<strong>Azul brillante</strong>; los núcleos y el citoplasma quedan rojo-naranja."],
+    ["Masson","Tricrómica de Masson: ¿colores y para qué se usa?","Colágeno <strong>azul o verde</strong>, músculo/citoplasma <strong>rojo</strong>. Muy usada para ver <strong>fibrosis</strong> (exceso de colágeno)."],
+    ["Gomori","Tricrómica de Gomori: ¿en qué se parece a Masson?","Colágeno <strong>verde</strong>, músculo <strong>rojo</strong>; es como Masson pero en <strong>un solo paso</strong>."],
+    ["Fibras reticulares","¿Cómo se ven las fibras reticulares y con qué se tiñen?","<strong>Negras</strong>, con <strong>impregnación argéntica</strong> (sales de plata). Son colágeno tipo III, la red de sostén de órganos como hígado y bazo."],
+    ["Fibras elásticas","¿Con qué se tiñen las fibras elásticas?","Con <strong>orceína</strong> (café/marrón) o con <strong>resorcina-fucsina de Weigert</strong> (azul-negro/violeta)."],
+    ["PAS","¿Qué tiñe el PAS y de qué color?","<strong>Azúcares</strong> (glucógeno, moco, membrana basal) de color <strong>magenta/rosa fuerte</strong>. Es una reacción histoquímica, no un colorante ácido o básico."],
+    ["Alcian Blue","¿Qué tiñe el Alcian Blue?","El <strong>moco/mucinas ácidas</strong> de color <strong>azul-turquesa</strong> (colorante básico que busca azúcares con carga negativa)."],
+    ["Alcian Blue-PAS","¿Para qué combinar Alcian Blue + PAS?","Para <strong>distinguir tipos de moco</strong>: el ácido queda <strong>azul</strong> y los azúcares neutros/glucógeno, <strong>magenta</strong>."],
+    ["Lectinas","¿Qué son las lectinas en histología?","<strong>Proteínas</strong> que se pegan a un <strong>azúcar específico</strong>; marcadas (fluorescencia) permiten localizarlo. Son como una 'llave' para ese azúcar."],
+    ["Hueso","¿Qué muestra la técnica de Schmorl?","Los <strong>osteocitos</strong>, las <strong>lagunas</strong> y los <strong>canalículos</strong> del hueso (las 'casitas' y 'túneles' de las células óseas)."],
+    ["Hueso","Técnica de desgaste para hueso seco: ¿tiñe?","<strong>No</strong>: se desgasta el hueso hasta dejarlo finísimo para ver su arquitectura (osteonas/laminillas) <strong>sin colorante</strong>."],
+    ["Sangre","¿Para qué sirve la tinción de Wright?","Teñir <strong>frotis de sangre</strong> (grupo Romanowsky): núcleos morados, eritrocitos rosa-salmón, gránulos de colores. Sirve para identificar y contar células."],
+    ["Sangre","May-Grünwald Giemsa (MGG): ¿para qué?","Como Wright pero con <strong>más detalle</strong>; muy usada en <strong>sangre y médula ósea</strong> (también Romanowsky)."],
+    ["Neuronas","¿Qué muestra la técnica de Nissl?","Los <strong>cuerpos de Nissl</strong> y el núcleo de las <strong>neuronas</strong> (azul/violeta). Colorante básico que se une al ARN/ADN → marca los <strong>somas</strong> neuronales."],
+    ["Mielina","¿Qué tiñe el Luxol Fast Blue (Klüver-Barrera)?","La <strong>mielina</strong> (sustancia blanca) de <strong>azul-turquesa</strong>; con cresil violeta se ven además los somas."],
+    ["Mielina","¿Qué tiñe la impregnación con tetróxido de osmio?","La <strong>mielina y los lípidos</strong> de color <strong>negro</strong> (el osmio se une a las grasas)."],
+    ["Plata","Impregnación de Golgi: ¿qué permite ver?","Unas <strong>pocas neuronas completas</strong> (con sus dendritas) en <strong>negro</strong> sobre fondo claro → se ve la <strong>forma entera</strong> de la neurona."],
+    ["Plata","Impregnación de Cajal: ¿qué tiñe?","Las <strong>neurofibrillas</strong> y las <strong>terminaciones nerviosas/axones</strong> de <strong>negro</strong>."],
+    ["Plata","Del Río Hortega: ¿qué célula tiñe?","La <strong>microglía</strong> (células de defensa del sistema nervioso) de <strong>negro</strong> (carbonato de plata)."],
+    ["Truco","¿Qué estructuras se ven NEGRAS con plata/osmio?","Fibras reticulares, neuronas enteras (Golgi), axones (Cajal), microglía (Del Río Hortega) y mielina/lípidos (osmio)."]
+  ];
 
-  document.getElementById('fcCount').textContent = cards.length + ' tarjetas de repaso';
-  let allFlipped = false;
-  document.getElementById('flipAll').addEventListener('click',()=>{
-    allFlipped = !allFlipped;
-    document.querySelectorAll('.card').forEach(c=>c.classList.toggle('flip',allFlipped));
-  });
-  document.getElementById('resetAll').addEventListener('click',()=>{
-    allFlipped = false;
-    document.querySelectorAll('.card').forEach(c=>c.classList.remove('flip'));
-  });
+  function buildDeck(gridId, deck, countId, flipId, resetId){
+    const grid = document.getElementById(gridId);
+    if(!grid) return;
+    deck.forEach(([cat,q,a])=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="card-inner">
+          <div class="face front">
+            <div class="lab">${cat}</div>
+            <div class="q">${q}</div>
+            <div class="flipnote">↻ clic para ver la respuesta</div>
+          </div>
+          <div class="face back">
+            <div class="lab">Respuesta</div>
+            <div class="a">${a}</div>
+          </div>
+        </div>`;
+      card.addEventListener('click',()=>card.classList.toggle('flip'));
+      grid.appendChild(card);
+    });
+    const countEl = document.getElementById(countId);
+    if(countEl) countEl.textContent = deck.length + ' tarjetas de repaso';
+    let allFlipped = false;
+    const flipBtn = document.getElementById(flipId);
+    const resetBtn = document.getElementById(resetId);
+    if(flipBtn) flipBtn.addEventListener('click',()=>{
+      allFlipped = !allFlipped;
+      grid.querySelectorAll('.card').forEach(c=>c.classList.toggle('flip',allFlipped));
+    });
+    if(resetBtn) resetBtn.addEventListener('click',()=>{
+      allFlipped = false;
+      grid.querySelectorAll('.card').forEach(c=>c.classList.remove('flip'));
+    });
+  }
+
+  buildDeck('fcGrid', cards, 'fcCount', 'flipAll', 'resetAll');
+  buildDeck('fcGridTin', cardsTin, 'fcCountTin', 'flipAllTin', 'resetAllTin');
 </script>
 </body>
 </html>
